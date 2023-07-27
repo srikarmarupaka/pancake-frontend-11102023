@@ -3,7 +3,9 @@ import { Button, NextLinkFromReactRouter, IfoSkeletonCardActions } from '@pancak
 import { useAccount } from 'wagmi'
 import { Ifo, PoolIds } from 'config/constants/types'
 import { WalletIfoData, PublicIfoData } from 'views/Ifos/types'
+import { isBasicSale } from 'views/Ifos/hooks/v7/helpers'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+
 import ContributeButton from './ContributeButton'
 import ClaimButton from './ClaimButton'
 import { EnableStatus } from '../types'
@@ -41,7 +43,7 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
     return <ConnectWalletButton width="100%" />
   }
 
-  if (!hasProfile) {
+  if (!hasProfile && !isBasicSale(publicIfoData[poolId].saleType)) {
     return (
       <Button as={NextLinkFromReactRouter} to={`/profile/${account.toLowerCase()}`} width="100%">
         {t('Activate your Profile')}
