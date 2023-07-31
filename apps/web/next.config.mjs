@@ -57,6 +57,7 @@ const config = {
     '@pancakeswap/localization',
     '@pancakeswap/hooks',
     '@pancakeswap/utils',
+    '@pancakeswap/ifos',
   ],
   reactStrictMode: true,
   swcMinify: true,
