@@ -8,7 +8,8 @@ import useSWRImmutable from 'swr/immutable'
 import { getFarmConfig } from '@pancakeswap/farms/constants'
 import { Pool } from '@pancakeswap/uikit'
 import { Token } from '@pancakeswap/sdk'
-import { getLivePoolsConfig } from '@pancakeswap/pools'
+import { getLivePoolsConfig, isCakeVaultSupported } from '@pancakeswap/pools'
+import { isIfoSupported } from '@pancakeswap/ifos'
 
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useAccountActiveChain from 'hooks/useAccountActiveChain'
@@ -165,16 +166,20 @@ export const useCakeVaultPublicData = () => {
 
 export const useFetchIfo = () => {
   const { account, chainId } = useAccountActiveChain()
+  const cakeVaultSupported = useMemo(() => isCakeVaultSupported(chainId), [chainId])
+  const ifoSupported = useMemo(() => isIfoSupported(chainId), [chainId])
   const dispatch = useAppDispatch()
 
   usePoolsConfigInitialize()
 
   useSWRImmutable(
-    chainId && ['fetchIfoPublicData', chainId],
+    chainId && ifoSupported && ['fetchIfoPublicData', chainId],
     async () => {
       batch(() => {
         dispatch(fetchCakePoolPublicDataAsync())
-        dispatch(fetchCakeVaultPublicData(chainId))
+        if (cakeVaultSupported) {
+          dispatch(fetchCakeVaultPublicData(chainId))
+        }
         dispatch(fetchIfoPublicDataAsync(chainId))
       })
     },
@@ -184,11 +189,13 @@ export const useFetchIfo = () => {
   )
 
   useSWRImmutable(
-    account && chainId && ['fetchIfoUserData', account, chainId],
+    account && chainId && ifoSupported && ['fetchIfoUserData', account, chainId],
     async () => {
       batch(() => {
-        dispatch(fetchCakePoolUserDataAsync({ account, chainId }))
-        dispatch(fetchCakeVaultUserData({ account, chainId }))
+        if (cakeVaultSupported) {
+          dispatch(fetchCakePoolUserDataAsync({ account, chainId }))
+          dispatch(fetchCakeVaultUserData({ account, chainId }))
+        }
         dispatch(fetchUserIfoCreditDataAsync({ account, chainId }))
       })
     },
@@ -197,7 +204,7 @@ export const useFetchIfo = () => {
     },
   )
 
-  useSWRImmutable(chainId && ['fetchCakeVaultFees', chainId], async () => {
+  useSWRImmutable(chainId && ifoSupported && ['fetchCakeVaultFees', chainId], async () => {
     dispatch(fetchCakeVaultFees(chainId))
   })
 }
