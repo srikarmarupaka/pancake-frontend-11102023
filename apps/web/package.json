@@ -37,6 +37,7 @@
     "@next/bundle-analyzer": "13.0.7",
     "@pancakeswap/farms": "workspace:*",
     "@pancakeswap/hooks": "workspace:*",
+    "@pancakeswap/ifos": "workspace:*",
     "@pancakeswap/localization": "workspace:*",
     "@pancakeswap/pools": "workspace:*",
     "@pancakeswap/sdk": "workspace:*",
