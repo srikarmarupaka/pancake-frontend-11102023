@@ -1,12 +1,18 @@
 import { useMemo } from 'react'
 import { Flex, useMatchBreakpoints, Pool } from '@pancakeswap/uikit'
+import { Token } from '@pancakeswap/sdk'
+import { isCakeVaultSupported } from '@pancakeswap/pools'
+
 import CakeVaultCard from 'views/Pools/components/CakeVaultCard'
 import { usePoolsWithVault } from 'state/pools/hooks'
-import { Token } from '@pancakeswap/sdk'
+import { useActiveChainId } from 'hooks/useActiveChainId'
+
 import IfoPoolVaultCardMobile from './IfoPoolVaultCardMobile'
 import IfoVesting from './IfoVesting/index'
 
 const IfoPoolVaultCard = () => {
+  const { chainId } = useActiveChainId()
+  const cakeVaultSupported = useMemo(() => isCakeVaultSupported(chainId), [chainId])
   const { isXl, isLg, isMd, isXs, isSm } = useMatchBreakpoints()
   const isSmallerThanXl = isXl || isLg || isMd || isXs || isSm
   const { pools } = usePoolsWithVault()
@@ -15,13 +21,15 @@ const IfoPoolVaultCard = () => {
     [pools],
   ) as Pool.DeserializedPool<Token>
 
+  const vault = isSmallerThanXl ? (
+    <IfoPoolVaultCardMobile pool={cakePool} />
+  ) : (
+    <CakeVaultCard pool={cakePool} showSkeleton={false} showStakedOnly={false} showICake />
+  )
+
   return (
     <Flex width="100%" maxWidth={400} alignItems="center" flexDirection="column">
-      {isSmallerThanXl ? (
-        <IfoPoolVaultCardMobile pool={cakePool} />
-      ) : (
-        <CakeVaultCard pool={cakePool} showSkeleton={false} showStakedOnly={false} showICake />
-      )}
+      {cakeVaultSupported ? vault : null}
       <IfoVesting pool={cakePool} />
     </Flex>
   )
