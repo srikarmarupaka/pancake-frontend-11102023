@@ -46,11 +46,8 @@ import { pointCenterIfoABI } from 'config/abi/pointCenterIfo'
 import { predictionsV1ABI } from 'config/abi/predictionsV1'
 import { stableSwapNativeHelperABI } from 'config/abi/stableSwapNativeHelper'
 
-import {
-  cakeFlexibleSideVaultV2ABI,
-  cakeVaultV2ABI,
-  getIfoCreditAddressContract as getIfoCreditAddressContract_,
-} from '@pancakeswap/pools'
+import { cakeFlexibleSideVaultV2ABI, cakeVaultV2ABI } from '@pancakeswap/pools'
+import { getIfoCreditAddressContract as getIfoCreditAddressContract_ } from '@pancakeswap/ifos'
 import { ChainId } from '@pancakeswap/sdk'
 import { masterChefV3ABI } from '@pancakeswap/v3-sdk'
 import { sidABI } from 'config/abi/SID'
