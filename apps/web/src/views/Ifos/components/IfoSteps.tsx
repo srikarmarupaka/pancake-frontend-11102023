@@ -22,10 +22,11 @@ import {
   TooltipText,
   useTooltip,
 } from '@pancakeswap/uikit'
+import { ChainId } from '@pancakeswap/sdk'
 import { Address, useAccount } from 'wagmi'
 
 import { useTranslation } from '@pancakeswap/localization'
-import useTokenBalance from 'hooks/useTokenBalance'
+import { useTokenBalanceByChain } from 'hooks/useTokenBalance'
 import { useProfile } from 'state/profile/hooks'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
@@ -34,6 +35,7 @@ import { getICakeWeekDisplay } from 'views/Pools/helpers'
 import { useCakePrice } from 'hooks/useCakePrice'
 
 interface TypeProps {
+  ifoChainId?: ChainId
   ifoCurrencyAddress: Address
   hasClaimed: boolean
   isCommitted: boolean
@@ -164,6 +166,7 @@ const Step2 = ({ hasProfile, isLive, isCommitted }: { hasProfile: boolean; isLiv
 }
 
 const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
+  ifoChainId,
   isCommitted,
   hasClaimed,
   isLive,
@@ -172,7 +175,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
   const { hasActiveProfile } = useProfile()
   const { address: account } = useAccount()
   const { t } = useTranslation()
-  const { balance } = useTokenBalance(ifoCurrencyAddress)
+  const { balance } = useTokenBalanceByChain(ifoCurrencyAddress, ifoChainId)
   const stepsValidationStatus = [hasActiveProfile, balance.isGreaterThan(0), isCommitted, hasClaimed]
 
   const getStatusProp = (index: number): StepStatus => {
