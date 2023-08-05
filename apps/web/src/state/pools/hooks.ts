@@ -166,13 +166,8 @@ export const useCakeVaultPublicData = () => {
   }, [dispatch, chainId])
 }
 
-type FetchIfoOptions = {
-  chainId?: ChainId
-}
-
-export const useFetchIfo = (options?: FetchIfoOptions) => {
-  const { account, chainId: currentChainId } = useAccountActiveChain()
-  const chainId = options?.chainId || currentChainId
+export const useFetchIfo = () => {
+  const { account, chainId } = useAccountActiveChain()
   const ifoSupported = useMemo(() => isIfoSupported(chainId), [chainId])
   const dispatch = useAppDispatch()
 
@@ -206,8 +201,8 @@ export const useFetchIfo = (options?: FetchIfoOptions) => {
     },
   )
 
-  useSWRImmutable(chainId && ifoSupported && ['fetchCakeVaultFees', chainId], async () => {
-    dispatch(fetchCakeVaultFees(chainId))
+  useSWRImmutable(defaultCakeVaultChain && ifoSupported && ['fetchCakeVaultFees', defaultCakeVaultChain], async () => {
+    dispatch(fetchCakeVaultFees(defaultCakeVaultChain))
   })
 }
 
