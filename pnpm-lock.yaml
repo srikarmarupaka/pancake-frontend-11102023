@@ -1125,6 +1125,9 @@ importers:
 
   packages/ifos:
     dependencies:
+      '@layerzerolabs/scan-client':
+        specifier: ^0.0.6
+        version: 0.0.6(axios@0.27.2)
       bignumber.js:
         specifier: ^9.0.0
         version: 9.1.1
@@ -6553,6 +6556,14 @@ packages:
   /@juggle/resize-observer@3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
     dev: true
+
+  /@layerzerolabs/scan-client@0.0.6(axios@0.27.2):
+    resolution: {integrity: sha512-K6Dpktj8bsPK/bE4DjgPclWn/mOZm/zm6lwRaaZvPkfPhmLQx43j5voBod9hqT2hSh26lC7ZkFAb+8aVUpPISQ==}
+    peerDependencies:
+      axios: '*'
+    dependencies:
+      axios: 0.27.2
+    dev: false
 
   /@ledgerhq/connect-kit-loader@1.0.1:
     resolution: {integrity: sha512-OAJh9rMaypS1ttrSMwPznXqglJGcP3WPTTgz9YAKfkaMyUtZcHx7hCj4d6f7DdSVZOgWcyEYfZ8M2QrA2gtvgQ==}
@@ -27528,7 +27539,7 @@ packages:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
 
   github.com/release-it/conventional-changelog/a4acfeac76369937a6566d698a5ae9180eceb413(release-it@15.10.3):
-    resolution: {tarball: https://codeload.github.com/release-it/conventional-changelog/tar.gz/a4acfeac76369937a6566d698a5ae9180eceb413}
+    resolution: {commit: a4acfeac76369937a6566d698a5ae9180eceb413, repo: git+ssh://git@github.com/release-it/conventional-changelog.git, type: git}
     id: github.com/release-it/conventional-changelog/a4acfeac76369937a6566d698a5ae9180eceb413
     name: '@release-it/conventional-changelog'
     version: 7.0.0
