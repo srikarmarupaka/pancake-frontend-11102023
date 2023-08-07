@@ -15,6 +15,7 @@ import {
 } from '@pancakeswap/uikit'
 import { ContextApi } from '@pancakeswap/localization'
 import { SUPPORTED_CHAIN_IDS as POOL_SUPPORTED_CHAINS } from '@pancakeswap/pools'
+import { SUPPORTED_CHAIN_IDS as IFO_SUPPORTED_CHAINS } from '@pancakeswap/ifos'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { getPerpetualUrl } from 'utils/getPerpetualUrl'
 import {
@@ -200,7 +201,7 @@ const config: (
         {
           label: t('IFO'),
           href: '/ifo',
-          supportChainIds: SUPPORT_ONLY_BSC,
+          supportChainIds: IFO_SUPPORTED_CHAINS,
           image: '/images/ifos/ifo-bunny.png',
         },
         {
