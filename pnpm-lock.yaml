@@ -1896,7 +1896,7 @@ packages:
   /@0xsquid/sdk@1.6.3(encoding@0.1.13)(typescript@5.1.3):
     resolution: {integrity: sha512-PgiJpI65Wt1hUdMllpW4JUKqLrt97RaLJ1gL75BTduNTibnnnM4e1VjhAOnpAXk7dkE2CDOm2vFaseLbOfmGrQ==}
     dependencies:
-      '@release-it/conventional-changelog': github.com/release-it/conventional-changelog/a4acfeac76369937a6566d698a5ae9180eceb413(release-it@15.10.3)
+      '@release-it/conventional-changelog': github.com/release-it/conventional-changelog/a27a3ab10622b7f42eaad264c352122fde16c28a(release-it@15.10.3)
       axios: 0.27.2
       ethers: 5.7.2
       release-it: 15.10.3(encoding@0.1.13)(typescript@5.1.3)
@@ -27538,14 +27538,14 @@ packages:
   /zwitch@1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
 
-  github.com/release-it/conventional-changelog/a4acfeac76369937a6566d698a5ae9180eceb413(release-it@15.10.3):
-    resolution: {commit: a4acfeac76369937a6566d698a5ae9180eceb413, repo: git+ssh://git@github.com/release-it/conventional-changelog.git, type: git}
-    id: github.com/release-it/conventional-changelog/a4acfeac76369937a6566d698a5ae9180eceb413
+  github.com/release-it/conventional-changelog/a27a3ab10622b7f42eaad264c352122fde16c28a(release-it@15.10.3):
+    resolution: {tarball: https://codeload.github.com/release-it/conventional-changelog/tar.gz/a27a3ab10622b7f42eaad264c352122fde16c28a}
+    id: github.com/release-it/conventional-changelog/a27a3ab10622b7f42eaad264c352122fde16c28a
     name: '@release-it/conventional-changelog'
-    version: 7.0.0
-    engines: {node: '>=16'}
+    version: 6.0.0
+    engines: {node: '>=14'}
     peerDependencies:
-      release-it: ^16.0.0
+      release-it: ^15.4.1
     dependencies:
       concat-stream: 2.0.0
       conventional-changelog: 4.0.0
