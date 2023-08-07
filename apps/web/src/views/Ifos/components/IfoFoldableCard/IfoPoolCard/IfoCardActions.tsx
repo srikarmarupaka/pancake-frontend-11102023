@@ -49,6 +49,10 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
     return <ActivateProfileButton />
   }
 
+  if (ifo.version >= 7 && ifo.chainId !== chainId) {
+    return <SwitchNetworkTips ifoChainId={ifo.chainId} />
+  }
+
   const needClaim =
     publicIfoData.status === 'finished' &&
     !userPoolCharacteristics.hasClaimed &&
@@ -57,10 +61,6 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
 
   if (needClaim) {
     return <ClaimButton poolId={poolId} ifoVersion={ifo.version} walletIfoData={walletIfoData} />
-  }
-
-  if (ifo.version >= 7 && ifo.chainId !== chainId) {
-    return <SwitchNetworkTips ifoChainId={ifo.chainId} />
   }
 
   if (
