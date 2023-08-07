@@ -50,6 +50,7 @@ import {
   getRevenueSharingPoolContract,
 } from 'utils/contractHelpers'
 
+import { ifoV7ABI } from '@pancakeswap/ifos'
 import { ChainId, WNATIVE, pancakePairV2ABI } from '@pancakeswap/sdk'
 import { CAKE } from '@pancakeswap/tokens'
 import { nonfungiblePositionManagerABI } from '@pancakeswap/v3-sdk'
@@ -58,7 +59,6 @@ import { erc20Bytes32ABI } from 'config/abi/erc20_bytes32'
 import { ifoV1ABI } from 'config/abi/ifoV1'
 import { ifoV2ABI } from 'config/abi/ifoV2'
 import { ifoV3ABI } from 'config/abi/ifoV3'
-import { ifoV7ABI } from 'config/abi/ifoV7'
 import { wbethBscABI } from 'config/abi/wbethBSC'
 import { wbethEthABI } from 'config/abi/wbethETH'
 import { zapABI } from 'config/abi/zap'
