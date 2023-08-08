@@ -10,7 +10,9 @@ import useGetPublicIfoV3Data from 'views/Ifos/hooks/v3/useGetPublicIfoData'
 import BigNumber from 'bignumber.js'
 import useSWRImmutable from 'swr/immutable'
 import { format } from 'date-fns'
+
 import Claim from './Claim'
+import { isBasicSale } from '../../../hooks/v7/helpers'
 
 const WhiteCard = styled.div`
   background: ${({ theme }) => theme.colors.backgroundAlt};
@@ -29,9 +31,15 @@ interface InfoProps {
   poolId: PoolIds
   data: VestingData
   fetchUserVestingData: () => void
+  ifoBasicSaleType?: number
 }
 
-const Info: React.FC<React.PropsWithChildren<InfoProps>> = ({ poolId, data, fetchUserVestingData }) => {
+const Info: React.FC<React.PropsWithChildren<InfoProps>> = ({
+  poolId,
+  data,
+  fetchUserVestingData,
+  ifoBasicSaleType,
+}) => {
   const { t } = useTranslation()
   const { token } = data.ifo
   const { vestingStartTime } = data.userVestingData
@@ -43,7 +51,12 @@ const Info: React.FC<React.PropsWithChildren<InfoProps>> = ({ poolId, data, fetc
     vestingReleased,
     vestingInformationDuration,
   } = data.userVestingData[poolId]
-  const labelText = poolId === PoolIds.poolUnlimited ? t('Public Sale') : t('Private Sale')
+  const labelText =
+    poolId === PoolIds.poolUnlimited
+      ? t('Public Sale')
+      : isBasicSale(ifoBasicSaleType)
+      ? t('Basic Sale')
+      : t('Private Sale')
 
   const currentBlock = useCurrentBlock()
   const publicIfoData = useGetPublicIfoV3Data(data.ifo)
