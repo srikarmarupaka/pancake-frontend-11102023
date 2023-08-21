@@ -12,7 +12,7 @@
     "@pancakeswap/tokens": "workspace:*",
     "@pancakeswap/utils": "workspace:*",
     "viem": "^1.2.9",
-    "wagmi": "^1.3.4"
+    "wagmi": "^1.3.10"
   },
   "dependencies": {
     "@layerzerolabs/scan-client": "^0.0.6",
@@ -26,6 +26,6 @@
     "typescript": "^5.1.3",
     "viem": "^1.2.9",
     "vitest": "^0.27.2",
-    "wagmi": "^1.3.4"
+    "wagmi": "^1.3.10"
   }
 }
