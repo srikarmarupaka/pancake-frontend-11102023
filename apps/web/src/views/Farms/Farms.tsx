@@ -354,7 +354,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <FarmsContext.Provider value={providerValue}>
-      <PageHeader>
+      {/* <PageHeader>
         <FarmFlexWrapper justifyContent="space-between">
           <Box>
             <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
@@ -378,8 +378,16 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </Box>
           )}
         </FarmFlexWrapper>
-      </PageHeader>
+      </PageHeader> */}
       <Page>
+          <Box>
+            <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
+              {t('Farms')}
+            </FarmH1>
+            <FarmH2 scale="lg" color="text">
+              {t('Stake LP tokens to earn.')}
+            </FarmH2>
+          </Box>
         <ControlContainer>
           <ViewControls>
             <Flex mt="20px">
@@ -483,7 +491,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
           </Flex>
         )}
         {poolLength && <div ref={observerRef} />}
-        <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        {/* <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} /> */}
       </Page>
     </FarmsContext.Provider>
   )

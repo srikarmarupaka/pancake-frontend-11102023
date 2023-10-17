@@ -7,9 +7,23 @@ import { getCakeVaultAddress } from 'utils/addressHelpers'
 import { getCakeContract } from 'utils/contractHelpers'
 import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
 import { bitQueryServerClient, infoServerClient } from 'utils/graphql'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import Swap from '../views/Swap'
+import { SwapFeaturesProvider } from '../views/Swap/SwapFeaturesContext'
 import Home from '../views/Home'
 
 const IndexPage = ({ totalTx30Days, addressCount30Days, tvl }) => {
+  const router = useRouter()
+  useEffect(() => {
+    router.replace('/swap')
+  }, [])
+
+  return (
+    <SwapFeaturesProvider>
+      <Swap />
+    </SwapFeaturesProvider>
+  )
   return (
     <SWRConfig
       value={{

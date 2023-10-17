@@ -26,14 +26,14 @@ export const SwapPage = ({
 }: SwapPageProps) => (
   <AtomBox className={pageVariants({ removePadding, noMinHeight })} {...props}>
     {children}
-    <AtomBox display="flex" flexGrow={1} />
-    <AtomBox display={["block", null, null, hideFooterOnDesktop ? "none" : "block"]} width="100%">
+    {/* <AtomBox display="flex" flexGrow={1} /> */}
+    {/* <AtomBox display={["block", null, null, hideFooterOnDesktop ? "none" : "block"]} width="100%">
       <SwapFooter
         externalText={externalText}
         externalLinkUrl={externalLinkUrl}
         helpUrl={helpUrl}
         helpImage={helpImage}
       />
-    </AtomBox>
+    </AtomBox> */}
   </AtomBox>
 );

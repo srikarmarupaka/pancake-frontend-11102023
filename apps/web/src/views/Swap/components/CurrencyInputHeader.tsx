@@ -120,13 +120,13 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
 
   const titleContent = (
     <Flex width="100%" alignItems="center" justifyContent="space-between" flexDirection="column">
-      <Flex flexDirection="column" alignItems="flex-start" width="100%" marginBottom={15}>
+      <Flex flexDirection="column" alignItems="flex-start" width="100%">
         <Swap.CurrencyInputHeaderTitle>{title}</Swap.CurrencyInputHeaderTitle>
       </Flex>
-      <Flex justifyContent="start" width="100%" height="17px" alignItems="center" mb="14px">
+      {/* <Flex justifyContent="start" width="100%" height="17px" alignItems="center" mb="14px">
         <Swap.CurrencyInputHeaderSubTitle>{subtitle}</Swap.CurrencyInputHeaderSubTitle>
-      </Flex>
-      <Flex width="100%" justifyContent="end">
+      </Flex> */}
+      {/* <Flex width="100%" justifyContent="end">
         {isChartSupported && setIsChartDisplayed && (
           <ColoredIconButton
             onClick={() => {
@@ -176,7 +176,7 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
         <IconButton variant="text" scale="sm" onClick={handleOnClick}>
           <RefreshIcon disabled={!hasAmount} color="textSubtle" width="27px" />
         </IconButton>
-      </Flex>
+      </Flex> */}
     </Flex>
   )
 

@@ -43,7 +43,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
 
   return (
     <>
-      <PageHeader>
+      {/* <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
@@ -57,8 +57,19 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
             </Heading>
           </Flex>
         </Flex>
-      </PageHeader>
+      </PageHeader> */}
       <Page>
+          <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
+            <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+              {t('Syrup Pools')}
+            </Heading>
+            <Heading scale="md" color="text">
+              {t('Just stake some tokens to earn.')}
+            </Heading>
+            <Heading scale="md" color="text">
+              {t('High APR, low risk.')}
+            </Heading>
+          </Flex>
         <PoolControls pools={pools}>
           {({ chosenPools, viewMode, stakedOnly, normalizedUrlSearch, showFinishedPools }) => (
             <>
@@ -134,14 +145,14 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                   )}
                 </Pool.PoolsTable>
               )}
-              <Image
+              {/* <Image
                 mx="auto"
                 mt="12px"
                 src="/images/decorations/3d-syrup-bunnies.png"
                 alt="Pancake illustration"
                 width={192}
                 height={184.5}
-              />
+              /> */}
             </>
           )}
         </PoolControls>
