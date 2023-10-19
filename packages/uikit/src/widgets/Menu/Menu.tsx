@@ -168,28 +168,29 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
               </Flex>
             </StyledNav>
           </FixedContainer>
-          {subLinks ? (
-            <Flex justifyContent="space-around" overflow="hidden">
-              <SubMenuItems
-                items={subLinksWithoutMobile}
-                mt={`${totalTopMenuHeight + 1}px`}
-                activeItem={activeSubItem}
-              />
-
-              {subLinksMobileOnly && subLinksMobileOnly?.length > 0 && (
-                <SubMenuItems
-                  items={subLinksMobileOnly}
-                  mt={`${totalTopMenuHeight + 1}px`}
-                  activeItem={activeSubItem}
-                  isMobileOnly
-                />
+          <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "50px"}>
+            <Inner>
+              {subLinks ? (
+                <Flex justifyContent="center" overflow="hidden">
+                  <SubMenuItems
+                    items={subLinksWithoutMobile}
+                    mt={`${totalTopMenuHeight + 1}px`}
+                    activeItem={activeSubItem}
+                  />
+                  {subLinksMobileOnly && subLinksMobileOnly?.length > 0 && (
+                    <SubMenuItems
+                      items={subLinksMobileOnly}
+                      mt={`${totalTopMenuHeight + 1}px`}
+                      activeItem={activeSubItem}
+                      isMobileOnly
+                    />
+                  )}
+                </Flex>
+              ) : (
+                <div />
               )}
-            </Flex>
-          ) : (
-            <div />
-          )}
-          <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
-            <Inner>{children}</Inner>
+              {children}
+            </Inner>
           </BodyWrapper>
         </Wrapper>
       </AtomBox>

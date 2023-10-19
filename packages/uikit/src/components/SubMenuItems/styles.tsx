@@ -5,9 +5,13 @@ export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean }>`
   ${({ theme }) => theme.mediaQueries.sm} {
     ${({ $isMobileOnly }) => ($isMobileOnly ? "display:none" : "")};
   }
-  width: 100%;
+  width: 60%;
   overflow: hidden;
   position: relative;
+  justify-content: center;
+  border: 2px solid #47308c;
+  border-radius: 5px;
+  padding: 5px
 `;
 const StyledSubMenuItems = styled(Flex)`
   position: relative;
@@ -68,7 +72,8 @@ export const RightMaskLayer = styled.div`
       : `linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 87.5%)`};
 `;
 
-export const StyledSubMenuItemWrapper = styled(Box)`
+export const StyledSubMenuItemWrapper = styled(Box)<{$isActive : boolean}>`
+  padding: 0px 14px;
   display: inline-block;
   vertical-align: top;
   scroll-snap-align: start;

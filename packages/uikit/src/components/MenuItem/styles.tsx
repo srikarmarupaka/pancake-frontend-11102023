@@ -3,6 +3,7 @@ import { StyledMenuItemProps } from "./types";
 
 export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
   position: relative;
+  borderRadius: 5px;
 
   ${({ $isActive, $variant, theme }) =>
     $isActive &&
@@ -11,7 +12,7 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
       &:after{
         content: "";
         position: absolute;
-        bottom: 0;
+        // bottom: 0;
         height: 4px;
         width: 100%;
         background-color: ${theme.colors.primary};
@@ -25,7 +26,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   display: flex;
   align-items: center;
 
-  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
+  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.input : theme.colors.primary)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
   opacity: ${({ $isDisabled }) => ($isDisabled ? 0.5 : 1)};

@@ -302,14 +302,17 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             showUSDPrice={!!tokenMap[chainId]?.[inputCurrencyId] || inputCurrencyId === NATIVE[chainId]?.symbol}
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
-          {isAccessTokenSupported && inputCurrency?.isToken && (
+          {/* {isAccessTokenSupported && inputCurrency?.isToken && (
             <Box>
               <AccessRisk token={inputCurrency} />
             </Box>
-          )}
+          )} */}
 
           <AutoColumn justify="space-between">
-            <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
+            <AutoRow
+              justify={isExpertMode ? 'space-between' : 'center'}
+              style={{ padding: '0 1rem', position: 'absolute', zIndex: 9, transform: 'translate(-5%, -50%)' }}
+            >
               <SwapUI.SwitchButton
                 onClick={() => {
                   setApprovalSubmitted(false) // reset 2 step UI for approvals
@@ -340,11 +343,11 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
 
-          {isAccessTokenSupported && outputCurrency?.isToken && (
+          {/* {isAccessTokenSupported && outputCurrency?.isToken && (
             <Box>
               <AccessRisk token={outputCurrency} />
             </Box>
-          )}
+          )} */}
 
           {isSmartRouterBetter && !isStableSwapByDefault && (
             <AutoColumn>
