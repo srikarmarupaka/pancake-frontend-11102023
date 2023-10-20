@@ -216,7 +216,7 @@ export default function SwapCommitButton({
   }
 
   if (!account) {
-    return <ConnectWalletButton width="100%" />
+    return <ConnectWalletButton width="100%" isConnectWallet />
   }
 
   if (showWrap) {

@@ -29,7 +29,7 @@ const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm'
   ${({ zapStyle, theme }) =>
     zapStyle &&
     css`
-      padding: 8px;
+      padding: 14px;
       background: ${theme.colors.background};
       border: 1px solid ${theme.colors.cardBorder};
       border-radius: ${zapStyle === 'zap' ? '0px' : '8px'} 8px 0px 0px;
@@ -53,9 +53,9 @@ const InputPanel = styled.div`
   z-index: 1;
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
-  border-radius: 16px;
+  border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
+  // box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
@@ -240,7 +240,7 @@ export default function CurrencyInputPanel({
       </Flex>
       <InputPanel>
         <Container as="label" zapStyle={zapStyle} error={error}>
-          <Flex width="100%" justifyContent="space-between" padding={[0,2]} flexDirection={labelTo ? 'row-reverse' : 'row'}>
+          <Flex width="100%" justifyContent="space-between" padding="12px" flexDirection={labelTo ? 'row-reverse' : 'row'}>
             <>
               <CurrencySelectButton
                 zapStyle={zapStyle}
@@ -327,7 +327,7 @@ export default function CurrencyInputPanel({
               </Flex>
             </Flex>
           )}
-          <InputRow selected={disableCurrencySelect}>
+          {/* <InputRow selected={disableCurrencySelect}> */}
             {account && currency && selectedCurrencyBalance?.greaterThan(0) && !disabled && label !== 'To' && (
               <Flex alignItems="right" justifyContent="right">
                 {maxAmount?.greaterThan(0) &&
@@ -372,7 +372,7 @@ export default function CurrencyInputPanel({
                 )}
               </Flex>
             )}
-          </InputRow>
+          {/* </InputRow> */}
         </Container>
         {disabled && <Overlay />}
       </InputPanel>

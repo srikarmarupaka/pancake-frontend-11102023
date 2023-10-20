@@ -10,6 +10,7 @@ export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
   flex-direction: column;
   align-self: baseline;
   position: relative;
+  border: 0;
   color: ${({ isFinished, theme }) => theme.colors[isFinished ? "textDisabled" : "secondary"]};
 
   ${({ theme }) => theme.mediaQueries.sm} {

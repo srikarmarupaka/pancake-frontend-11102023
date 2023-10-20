@@ -102,7 +102,7 @@ const UserMenu = () => {
         <Trans>Connect Wallet</Trans>
       </Box>
       <Box display={['block', null, null, 'none']}>
-        <Trans>Connect</Trans>
+        <Trans>Connect Wallet</Trans>
       </Box>
     </ConnectWalletButton>
   )

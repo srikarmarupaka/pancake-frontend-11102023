@@ -9,6 +9,7 @@ export const switchButtonClass = style([
   style({
     backgroundColor: "white",
     boxShadow: "inset 0px -2px 0px rgba(0, 0, 0, 0.1)",
+    borderRadius: "100px",
   }),
 ]);
 
@@ -139,7 +140,7 @@ export const pageVariants = recipe({
       alignItems: "center",
       width: "100%",
       height: "100%",
-      background: "backgroundDisabled",
+      background: "background",
       padding: "16px",
       paddingBottom: "0",
     }),
