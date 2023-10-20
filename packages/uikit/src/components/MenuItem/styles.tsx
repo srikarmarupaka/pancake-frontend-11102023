@@ -41,7 +41,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
       background: ${theme.colors[$statusColor]};
       height: 8px;
       width: 8px;
-      margin-left: 12px;
+      // margin-left: 12px;
     }
   `}
 
@@ -57,7 +57,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   `}
 
   &:hover {
-    background: ${({ theme }) => theme.colors.tertiary};
+    // background: ${({ theme }) => theme.colors.tertiary};
     ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
   }
 `;

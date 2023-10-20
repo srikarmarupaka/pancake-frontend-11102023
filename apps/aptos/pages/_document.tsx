@@ -35,7 +35,9 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://tokens.pancakeswap.finance" />
-          <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" />
+          {/* <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" /> */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" href="https://pancakeswap.finance/favicon.ico" />
           <link rel="apple-touch-icon" href="https://pancakeswap.finance/logo.png" />
         </Head>

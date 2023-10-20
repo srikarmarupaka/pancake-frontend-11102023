@@ -164,6 +164,7 @@ export default function CurrencyInputPanel({
   const [currentClickedPercent, setCurrentClickedPercent] = useState('')
 
   const isAtPercentMax = (maxAmount && value === maxAmount.toExact()) || (lpPercent && lpPercent === '100')
+  const labelTo = label.split(' ').filter(l => l==='To')[0]
 
   return (
     <Box position="relative" id={id}>
@@ -239,7 +240,7 @@ export default function CurrencyInputPanel({
       </Flex>
       <InputPanel>
         <Container as="label" zapStyle={zapStyle} error={error}>
-          <Flex width="100%" justifyContent="space-between" padding={[0,2]}>
+          <Flex width="100%" justifyContent="space-between" padding={[0,2]} flexDirection={labelTo ? 'row-reverse' : 'row'}>
             <>
               <CurrencySelectButton
                 zapStyle={zapStyle}
@@ -252,11 +253,11 @@ export default function CurrencyInputPanel({
                 }}
               >
                 <Flex alignItems="center" justifyContent="space-between">
-                  {pair ? (
+                  {/* {pair ? (
                     <DoubleCurrencyLogo currency0={pair.token0} currency1={pair.token1} size={16} margin />
                   ) : currency ? (
                     <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
-                  ) : null}
+                  ) : null} */}
                   {pair ? (
                     <Text id="pair" bold>
                       {pair?.token0.symbol}:{pair?.token1.symbol}
@@ -271,10 +272,10 @@ export default function CurrencyInputPanel({
                         : currency?.symbol) || t('Select a currency')}
                     </Text>
                   )}
-                  {!disableCurrencySelect && <ChevronDownIcon />}
+                  {/* {!disableCurrencySelect && <ChevronDownIcon />} */}
                 </Flex>
               </CurrencySelectButton>
-              {token && tokenAddress ? (
+              {/* {token && tokenAddress ? (
                 <Flex style={{ gap: '4px' }} ml="4px" alignItems="center">
                   <CopyButton
                     width="16px"
@@ -293,7 +294,7 @@ export default function CurrencyInputPanel({
                     tokenLogo={token instanceof WrappedTokenInfo ? token.logoURI : undefined}
                   />
                 </Flex>
-              ) : null}
+              ) : null} */}
             </>
             <>
               {/* <LabelRow> */}
@@ -303,6 +304,7 @@ export default function CurrencyInputPanel({
                 className="token-amount-input"
                 value={value}
                 onBlur={onInputBlur}
+                style={{textAlign : labelTo ? 'left' : 'right'}}
                 onUserInput={(val) => {
                   onUserInput(val)
                   setCurrentClickedPercent('')

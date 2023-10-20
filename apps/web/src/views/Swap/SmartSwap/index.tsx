@@ -283,7 +283,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
         hasAmount={hasAmount}
         onRefreshPrice={onRefreshPrice}
       />
-      <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
+      <Wrapper id="swap-page" style={{ minHeight: '246px' }}>
         <AutoColumn gap="sm">
           <CurrencyInputPanel
             label={independentField === Field.OUTPUT && !showWrap && tradeInfo ? t('From (estimated)') : t('From')}
@@ -385,7 +385,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             </>
           ) : null}
 
-          {showWrap ? null : (
+          {showWrap ? null : (tradeInfo && mmTradeInfo) &&  (
             <SwapUI.Info
               price={
                 (Boolean(tradeInfo) || Boolean(mmTradeInfo)) && (
@@ -405,6 +405,38 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             />
           )}
         </AutoColumn>
+      {!swapIsUnsupported ? (
+        !showWrap && tradeInfo && !isMMBetter ? (
+          <AdvancedSwapDetailsDropdown
+            hasStablePair={smartRouterOn}
+            pairs={tradeInfo.route.pairs}
+            path={tradeInfo.route.path}
+            priceImpactWithoutFee={tradeInfo.priceImpactWithoutFee}
+            realizedLPFee={tradeInfo.realizedLPFee}
+            slippageAdjustedAmounts={tradeInfo.slippageAdjustedAmounts}
+            inputAmount={tradeInfo.inputAmount}
+            outputAmount={tradeInfo.outputAmount}
+            tradeType={tradeInfo.tradeType}
+          />
+        ) : (
+          mmTradeInfo && (
+            <AdvancedSwapDetailsDropdown
+              isMM
+              hasStablePair={false}
+              pairs={mmTradeInfo.route.pairs}
+              path={mmTradeInfo.route.path}
+              priceImpactWithoutFee={mmTradeInfo.priceImpactWithoutFee}
+              realizedLPFee={mmTradeInfo.realizedLPFee}
+              slippageAdjustedAmounts={mmTradeInfo.slippageAdjustedAmounts}
+              inputAmount={mmTradeInfo.inputAmount}
+              outputAmount={mmTradeInfo.outputAmount}
+              tradeType={mmTradeInfo.tradeType}
+            />
+          )
+        )
+      ) : (
+        <UnsupportedCurrencyFooter currencies={[currencies.INPUT, currencies.OUTPUT]} />
+      )}
 
         <Box mt="0.25rem">
           {!tradeWithStableSwap &&
@@ -479,7 +511,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
           )}
         </Box>
       </Wrapper>
-      {!swapIsUnsupported ? (
+      {/* {!swapIsUnsupported ? (
         !showWrap && tradeInfo && !isMMBetter ? (
           <AdvancedSwapDetailsDropdown
             hasStablePair={smartRouterOn}
@@ -510,7 +542,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
         )
       ) : (
         <UnsupportedCurrencyFooter currencies={[currencies.INPUT, currencies.OUTPUT]} />
-      )}
+      )} */}
     </>
   )
 }

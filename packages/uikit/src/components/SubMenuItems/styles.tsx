@@ -5,13 +5,13 @@ export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean }>`
   ${({ theme }) => theme.mediaQueries.sm} {
     ${({ $isMobileOnly }) => ($isMobileOnly ? "display:none" : "")};
   }
-  width: 60%;
   overflow: hidden;
+  display: flex;
   position: relative;
   justify-content: center;
   border: 2px solid #47308c;
   border-radius: 5px;
-  padding: 5px
+  padding: 3px
 `;
 const StyledSubMenuItems = styled(Flex)`
   position: relative;
@@ -20,6 +20,8 @@ const StyledSubMenuItems = styled(Flex)`
   display: block;
   white-space: nowrap;
   scroll-behavior: smooth;
+  display: flex;
+
   ${({ theme }) => theme.mediaQueries.md} {
     width: auto;
     display: flex;
@@ -73,10 +75,10 @@ export const RightMaskLayer = styled.div`
 `;
 
 export const StyledSubMenuItemWrapper = styled(Box)<{$isActive : boolean}>`
-  padding: 0px 14px;
+  padding: 0px 10px;
   display: inline-block;
   vertical-align: top;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
 `;
 
 export default StyledSubMenuItems;
