@@ -26,7 +26,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   display: flex;
   align-items: center;
 
-  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.input : theme.colors.primary)};
+  color: ${({ theme, $isActive, $variant }) => $variant === 'subMenu' ? ($isActive ? theme.colors.input : theme.colors.primary) : ($isActive ? theme.colors.text : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
   opacity: ${({ $isDisabled }) => ($isDisabled ? 0.5 : 1)};

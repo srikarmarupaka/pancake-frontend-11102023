@@ -50,7 +50,7 @@ const config: (
       showItemsOnMobile: false,
       items: [
         {
-          label: t('Swap'),
+          label: t('Exchange'),
           href: '/swap',
         },
         // {
@@ -79,24 +79,24 @@ const config: (
         // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
-    {
-      label: t('Earn'),
-      href: '/farms',
-      icon: EarnIcon,
-      fillIcon: EarnFillIcon,
-      image: '/images/decorations/pe2.png',
-      items: [
-        {
-          label: t('Farms'),
-          href: '/farms',
-        },
-        {
-          label: t('Pools'),
-          href: '/pools',
-          supportChainIds: SUPPORT_ONLY_BSC,
-        },
-      ].map((item) => addMenuItemSupported(item, chainId)),
-    },
+    // {
+    //   label: t('Earn'),
+    //   href: '/farms',
+    //   icon: EarnIcon,
+    //   fillIcon: EarnFillIcon,
+    //   image: '/images/decorations/pe2.png',
+    //   items: [
+    //     {
+    //       label: t('Farms'),
+    //       href: '/farms',
+    //     },
+    //     {
+    //       label: t('Pools'),
+    //       href: '/pools',
+    //       supportChainIds: SUPPORT_ONLY_BSC,
+    //     },
+    //   ].map((item) => addMenuItemSupported(item, chainId)),
+    // },
     // {
     //   label: t('Win'),
     //   href: '/prediction',
@@ -149,52 +149,52 @@ const config: (
     //     },
     //   ],
     // },
-    // {
-    //   label: '',
-    //   href: '/info',
-    //   icon: MoreIcon,
-    //   hideSubNav: true,
-    //   items: [
-    //     {
-    //       label: t('Info'),
-    //       href: '/info',
-    //     },
-    //     {
-    //       label: t('IFO'),
-    //       href: '/ifo',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //       image: '/images/ifos/ifo-bunny.png',
-    //     },
-    //     {
-    //       label: t('Voting'),
-    //       href: '/voting',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //       image: '/images/voting/voting-bunny.png',
-    //     },
-    //     {
-    //       type: DropdownMenuItemType.DIVIDER,
-    //     },
-    //     {
-    //       label: t('Leaderboard'),
-    //       href: '/teams',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //       image: '/images/decorations/leaderboard.png',
-    //     },
-    //     {
-    //       type: DropdownMenuItemType.DIVIDER,
-    //     },
-    //     {
-    //       label: t('Blog'),
-    //       href: 'https://medium.com/pancakeswap',
-    //       type: DropdownMenuItemType.EXTERNAL_LINK,
-    //     },
-    //     {
-    //       label: t('Docs'),
-    //       href: 'https://docs.pancakeswap.finance',
-    //       type: DropdownMenuItemType.EXTERNAL_LINK,
-    //     },
-    //   ].map((item) => addMenuItemSupported(item, chainId)),
-    // },
+    {
+      label: 'Info',
+      href: '/info',
+      icon: MoreIcon,
+      hideSubNav: true,
+      items: [
+        {
+          label: t('Info'),
+          href: '/info',
+        },
+        {
+          label: t('IFO'),
+          href: '/ifo',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/ifos/ifo-bunny.png',
+        },
+        {
+          label: t('Voting'),
+          href: '/voting',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/voting/voting-bunny.png',
+        },
+        {
+          type: DropdownMenuItemType.DIVIDER,
+        },
+        {
+          label: t('Leaderboard'),
+          href: '/teams',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/decorations/leaderboard.png',
+        },
+        {
+          type: DropdownMenuItemType.DIVIDER,
+        },
+        {
+          label: t('Blog'),
+          href: 'https://medium.com/pancakeswap',
+          type: DropdownMenuItemType.EXTERNAL_LINK,
+        },
+        {
+          label: t('Docs'),
+          href: 'https://docs.pancakeswap.finance',
+          type: DropdownMenuItemType.EXTERNAL_LINK,
+        },
+      ].map((item) => addMenuItemSupported(item, chainId)),
+    },
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

@@ -9,7 +9,7 @@ export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean }>`
   display: flex;
   position: relative;
   justify-content: center;
-  border: 2px solid #47308c;
+  border: 1px solid #47308c;
   border-radius: 5px;
   padding: 3px
 `;
@@ -19,7 +19,7 @@ const StyledSubMenuItems = styled(Flex)`
   width: 100%;
   display: block;
   white-space: nowrap;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
   display: flex;
 
   ${({ theme }) => theme.mediaQueries.md} {
