@@ -6,7 +6,9 @@ import { useEffect } from 'react'
 import { useGetChainName } from 'state/info/hooks'
 import { useRouter } from 'next/router'
 import { useActiveChainId } from 'hooks/useActiveChainId'
+import Page from 'components/Layout/Page'
 import InfoNav from './components/InfoNav'
+// import Page from '.'
 
 export const InfoPageLayout = ({ children }) => {
   const { address: account } = useAccount()
@@ -31,8 +33,8 @@ export const InfoPageLayout = ({ children }) => {
   }, [isStableSwap, chainId, account, chainName, router])
 
   return (
-    <>
-      {chainName === 'BSC' && (
+    <Page>
+      {/* {chainName === 'BSC' && (
         <SubMenuItems
           items={[
             {
@@ -46,10 +48,10 @@ export const InfoPageLayout = ({ children }) => {
           ]}
           activeItem={isStableSwap ? '/info?type=stableSwap' : '/info'}
         />
-      )}
+      )} */}
 
       <InfoNav isStableSwap={isStableSwap} />
       {children}
-    </>
+    </Page>
   )
 }

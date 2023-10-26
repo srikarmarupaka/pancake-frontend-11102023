@@ -152,6 +152,9 @@ export const pageVariants = recipe({
         padding: "24px",
         paddingBottom: "0",
       },
+      md:{
+        backgroundColor: "#f1f1f1",
+      },
       lg: {
         padding: "32px",
         paddingBottom: "0",

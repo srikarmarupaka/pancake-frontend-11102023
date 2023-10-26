@@ -3,6 +3,7 @@ export const baseColors = {
   failure: '#ED4B9E',
   failure33: '#ED4B9E33',
   primary: '#4D308C',
+  primary5F: '#4D308C5F',
   primary0f: '#1FC7D40f',
   primary3D: '#1FC7D43D',
   primaryBright: '#53DEE9',

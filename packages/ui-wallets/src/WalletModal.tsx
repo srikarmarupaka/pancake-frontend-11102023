@@ -153,6 +153,8 @@ function MobileModal<T>({
         <WalletSelect
           displayCount={MOBILE_DEFAULT_DISPLAY_COUNT}
           wallets={walletsToShow}
+          docLink={docLink}
+          docText={docText}
           onClick={(wallet) => {
             connectWallet(wallet)
             if (wallet.deepLink && wallet.installed === false) {
@@ -178,11 +180,15 @@ function MobileModal<T>({
 function WalletSelect<T>({
   wallets,
   onClick,
+  docLink,
+  docText,
   displayCount = 6,
 }: {
   wallets: WalletConfigV2<T>[]
   onClick: (wallet: WalletConfigV2<T>) => void
   displayCount?: number
+  docLink: string
+  docText: string
 }) {
   const { t } = useTranslation()
   const [showMore, setShowMore] = useState(false)
@@ -258,6 +264,7 @@ function WalletSelect<T>({
           </Button>
         </AtomBox>
       )}
+      {/* {!selected && <Intro docLink={docLink} docText={docText} />} */}
     </AtomBox>
   )
 }
@@ -313,7 +320,7 @@ function DesktopModal<T>({
       <AtomBox
         display="flex"
         flexDirection="column"
-        bg="backgroundAlt"
+        bg="input"
         py="32px"
         zIndex="modal"
         borderRadius="card"
@@ -331,6 +338,8 @@ function DesktopModal<T>({
         </AtomBox>
         <WalletSelect
           wallets={wallets}
+          docLink={docLink}
+          docText={docText}
           onClick={(w) => {
             connectToWallet(w)
             setQrCode(undefined)
@@ -341,6 +350,8 @@ function DesktopModal<T>({
             }
           }}
         />
+          {/* {!selected && <Intro docLink={docLink} docText={docText} />} */}
+        {/* {selected && selected.installed === false && <NotInstalled qrCode={qrCode} wallet={selected} />} */}
       </AtomBox>
       <AtomBox
         flex={1}
@@ -439,11 +450,11 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
   const { t } = useTranslation()
   return (
     <>
-      <Heading as="h1" fontSize="20px" color="secondary">
+      {/* <Heading as="h1" fontSize="20px" color="secondary">
         {t('Haven’t got a wallet yet?')}
       </Heading>
-      <Image src="https://cdn.pancakeswap.com/wallets/wallet_intro.png" width={198} height={178} />
-      <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
+      <Image src="https://cdn.pancakeswap.com/wallets/wallet_intro.png" width={198} height={178} /> */}
+      <Button as={LinkExternal} color="backgroundAlt" variant="primary" href={docLink}>
         {docText}
       </Button>
     </>

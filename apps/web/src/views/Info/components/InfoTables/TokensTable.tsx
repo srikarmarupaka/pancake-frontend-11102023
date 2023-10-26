@@ -5,6 +5,7 @@ import {
   Flex,
   Box,
   Skeleton,
+  Heading,
   ArrowBackIcon,
   ArrowForwardIcon,
   useMatchBreakpoints,
@@ -191,13 +192,17 @@ const TokenTable: React.FC<
     return <Skeleton />
   }
   return (
-    <TableWrapper>
+    <TableWrapper mt={40}>
+      <Heading scale="lg" m="16px">
+        {t('Top Tokens')}
+        <Text color='textDisabled'>{t('Lorem ipsum dolor sit amet consectetur.')}</Text>
+      </Heading>
       <ResponsiveGrid>
-        <Text color="secondary" fontSize="12px" bold>
+        <Text color="textDisabled" fontSize="12px" bold>
           #
         </Text>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.name)}
@@ -206,7 +211,7 @@ const TokenTable: React.FC<
           {t('Name')} {arrow(SORT_FIELD.name)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.priceUSD)}
@@ -215,7 +220,7 @@ const TokenTable: React.FC<
           {t('Price')} {arrow(SORT_FIELD.priceUSD)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.priceUSDChange)}
@@ -224,7 +229,7 @@ const TokenTable: React.FC<
           {t('Price Change')} {arrow(SORT_FIELD.priceUSDChange)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.volumeUSD)}
@@ -233,7 +238,7 @@ const TokenTable: React.FC<
           {t('Volume 24H')} {arrow(SORT_FIELD.volumeUSD)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.liquidityUSD)}
@@ -258,21 +263,26 @@ const TokenTable: React.FC<
             return null
           })}
           <PageButtons>
-            <Arrow
-              onClick={() => {
-                setPage(page === 1 ? page : page - 1)
-              }}
-            >
-              <ArrowBackIcon color={page === 1 ? 'textDisabled' : 'primary'} />
-            </Arrow>
-            <Text>{t('Page %page% of %maxPage%', { page, maxPage })}</Text>
-            <Arrow
-              onClick={() => {
-                setPage(page === maxPage ? page : page + 1)
-              }}
-            >
-              <ArrowForwardIcon color={page === maxPage ? 'textDisabled' : 'primary'} />
-            </Arrow>
+            <Flex>
+              <Text color='textDisabled'>{t('Showing %page% of %maxPage%', { page, maxPage })}</Text>
+            </Flex>
+            <Flex>
+              <Arrow
+                onClick={() => {
+                  setPage(page === 1 ? page : page - 1)
+                }}
+              >
+                <ArrowBackIcon color={page === 1 ? 'textDisabled' : 'primary'} />
+              </Arrow>
+              <Text>{t('Page %page% of %maxPage%', { page, maxPage })}</Text>
+              <Arrow
+                onClick={() => {
+                  setPage(page === maxPage ? page : page + 1)
+                }}
+              >
+                <ArrowForwardIcon color={page === maxPage ? 'textDisabled' : 'primary'} />
+              </Arrow>
+            </Flex>
           </PageButtons>
         </>
       ) : (

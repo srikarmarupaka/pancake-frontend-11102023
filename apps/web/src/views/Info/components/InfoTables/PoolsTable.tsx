@@ -1,5 +1,5 @@
 import { useTranslation } from '@pancakeswap/localization'
-import { ArrowBackIcon, ArrowForwardIcon, Box, Flex, NextLinkFromReactRouter, Skeleton, Text } from '@pancakeswap/uikit'
+import { ArrowBackIcon, ArrowForwardIcon, Box, Flex, NextLinkFromReactRouter, Skeleton, Text, Heading } from '@pancakeswap/uikit'
 import { ITEMS_PER_INFO_TABLE_PAGE } from 'config/constants/info'
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 import { useGetChainName, useMultiChainPath, useStableSwapPath } from 'state/info/hooks'
@@ -164,16 +164,20 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
   )
 
   return (
-    <TableWrapper>
+    <TableWrapper mt={40}>
+      <Heading scale="lg" m="16px">
+        {t('Top Pools')}
+        <Text color='textDisabled'>{t('Lorem ipsum dolor sit amet consectetur.')}</Text>
+      </Heading>
       <ResponsiveGrid>
-        <Text color="secondary" fontSize="12px" bold>
+        <Text color="textDisabled" fontSize="12px" bold>
           #
         </Text>
-        <Text color="secondary" fontSize="12px" bold textTransform="uppercase">
+        <Text color="textDisabled" fontSize="12px" bold textTransform="uppercase">
           {t('Pair')}
         </Text>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.volumeUSD)}
@@ -182,7 +186,7 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
           {t('Volume 24H')} {arrow(SORT_FIELD.volumeUSD)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.volumeUSDWeek)}
@@ -191,7 +195,7 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
           {t('Volume 7D')} {arrow(SORT_FIELD.volumeUSDWeek)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.lpFees24h)}
@@ -200,7 +204,7 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
           {t('LP reward fees 24H')} {arrow(SORT_FIELD.lpFees24h)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.lpApr7d)}
@@ -209,7 +213,7 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
           {t('LP reward APR')} {arrow(SORT_FIELD.lpApr7d)}
         </ClickableColumnHeader>
         <ClickableColumnHeader
-          color="secondary"
+          color="textDisabled"
           fontSize="12px"
           bold
           onClick={() => handleSort(SORT_FIELD.liquidityUSD)}
@@ -234,23 +238,28 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
           })}
           {loading && <LoadingRow />}
           <PageButtons>
-            <Arrow
-              onClick={() => {
-                setPage(page === 1 ? page : page - 1)
-              }}
-            >
-              <ArrowBackIcon color={page === 1 ? 'textDisabled' : 'primary'} />
-            </Arrow>
+            <Flex>
+              <Text color='textDisabled'>{t('Showing %page% of %maxPage%', { page, maxPage })}</Text>
+            </Flex>
+            <Flex>
+              <Arrow
+                onClick={() => {
+                  setPage(page === 1 ? page : page - 1)
+                }}
+              >
+                <ArrowBackIcon color={page === 1 ? 'textDisabled' : 'primary'} />
+              </Arrow>
 
-            <Text>{t('Page %page% of %maxPage%', { page, maxPage })}</Text>
+              <Text>{t('Page %page% of %maxPage%', { page, maxPage })}</Text>
 
-            <Arrow
-              onClick={() => {
-                setPage(page === maxPage ? page : page + 1)
-              }}
-            >
-              <ArrowForwardIcon color={page === maxPage ? 'textDisabled' : 'primary'} />
-            </Arrow>
+              <Arrow
+                onClick={() => {
+                  setPage(page === maxPage ? page : page + 1)
+                }}
+              >
+                <ArrowForwardIcon color={page === maxPage ? 'textDisabled' : 'primary'} />
+              </Arrow>
+            </Flex>
           </PageButtons>
         </>
       ) : (

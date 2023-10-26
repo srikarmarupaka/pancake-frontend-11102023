@@ -30,7 +30,7 @@ const NavWrapper = styled(Flex)`
   flex-direction: column;
   gap: 8px;
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 20px 40px;
+    padding: 20px 20px;
     flex-direction: row;
   }
 `
@@ -55,19 +55,19 @@ const InfoNav: React.FC<{ isStableSwap: boolean }> = ({ isStableSwap }) => {
     <NavWrapper>
       <Flex>
         <Box>
-          <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
+          <ButtonMenu activeIndex={activeIndex} scale="md" variant="primary">
             <ButtonMenuItem as={NextLinkFromReactRouter} to={`/info${chainPath}${stableSwapQuery}`}>
               {t('Overview')}
             </ButtonMenuItem>
             <ButtonMenuItem as={NextLinkFromReactRouter} to={`/info${chainPath}/pairs${stableSwapQuery}`}>
-              {t('Pairs')}
+              {t('Pools')}
             </ButtonMenuItem>
             <ButtonMenuItem as={NextLinkFromReactRouter} to={`/info${chainPath}/tokens${stableSwapQuery}`}>
               {t('Tokens')}
             </ButtonMenuItem>
           </ButtonMenu>
         </Box>
-        {!account && <NetworkSwitcher activeIndex={activeIndex} />}
+        {/* {!account && <NetworkSwitcher activeIndex={activeIndex} />} */}
       </Flex>
       <Box width={['100%', '100%', '250px']}>
         <Search />

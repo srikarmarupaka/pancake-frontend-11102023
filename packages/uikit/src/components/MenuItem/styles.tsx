@@ -4,7 +4,7 @@ import { StyledMenuItemProps } from "./types";
 export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
   position: relative;
   borderRadius: 5px;
-
+  cursor: pointer;
   ${({ $isActive, $variant, theme }) =>
     $isActive &&
     $variant === "subMenu" &&

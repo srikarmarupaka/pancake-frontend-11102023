@@ -3,7 +3,17 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { ChainId } from '@pancakeswap/sdk'
 import truncateHash from '@pancakeswap/utils/truncateHash'
-import { ArrowBackIcon, ArrowForwardIcon, Box, Flex, LinkExternal, Radio, Skeleton, Text } from '@pancakeswap/uikit'
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  Box,
+  Flex,
+  LinkExternal,
+  Radio,
+  Skeleton,
+  Text,
+  Heading,
+} from '@pancakeswap/uikit'
 import { ITEMS_PER_INFO_TABLE_PAGE } from 'config/constants/info'
 import { formatDistanceToNowStrict } from 'date-fns'
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
@@ -213,8 +223,13 @@ const TransactionTable: React.FC<
   )
 
   return (
-    <Wrapper>
-      <Flex mb="16px">
+    // <Wrapper >
+    <TableWrapper mt={40}>
+      <Heading scale="lg" mt="16px" mx={16}>
+        {t('Transactions')}
+        <Text color='textDisabled'>{t('Lorem ipsum dolor sit amet consectetur.')}</Text>
+      </Heading>
+      <Flex mb="16px" mx={16}>
         <Flex flexDirection={['column', 'row']}>
           <RadioGroup onClick={() => handleFilter(undefined)}>
             <Radio onChange={() => null} scale="sm" checked={txFilter === undefined} />
@@ -239,79 +254,82 @@ const TransactionTable: React.FC<
           </RadioGroup>
         </Flex>
       </Flex>
-      <TableWrapper>
-        <ResponsiveGrid>
-          <Text color="secondary" fontSize="12px" bold textTransform="uppercase">
-            {t('Action')}
-          </Text>
-          <ClickableColumnHeader
-            color="secondary"
-            fontSize="12px"
-            bold
-            onClick={() => handleSort(SORT_FIELD.amountUSD)}
-            textTransform="uppercase"
-          >
-            {t('Total Value')} {arrow(SORT_FIELD.amountUSD)}
-          </ClickableColumnHeader>
-          <ClickableColumnHeader
-            color="secondary"
-            fontSize="12px"
-            bold
-            onClick={() => handleSort(SORT_FIELD.amountToken0)}
-            textTransform="uppercase"
-          >
-            {t('Token Amount')} {arrow(SORT_FIELD.amountToken0)}
-          </ClickableColumnHeader>
-          <ClickableColumnHeader
-            color="secondary"
-            fontSize="12px"
-            bold
-            onClick={() => handleSort(SORT_FIELD.amountToken1)}
-            textTransform="uppercase"
-          >
-            {t('Token Amount')} {arrow(SORT_FIELD.amountToken1)}
-          </ClickableColumnHeader>
-          <ClickableColumnHeader
-            color="secondary"
-            fontSize="12px"
-            bold
-            onClick={() => handleSort(SORT_FIELD.sender)}
-            textTransform="uppercase"
-          >
-            {t('Account')} {arrow(SORT_FIELD.sender)}
-          </ClickableColumnHeader>
-          <ClickableColumnHeader
-            color="secondary"
-            fontSize="12px"
-            bold
-            onClick={() => handleSort(SORT_FIELD.timestamp)}
-            textTransform="uppercase"
-          >
-            {t('Time')} {arrow(SORT_FIELD.timestamp)}
-          </ClickableColumnHeader>
-        </ResponsiveGrid>
-        <Break />
+      <ResponsiveGrid>
+        <Text color="textDisabled" fontSize="12px" bold textTransform="uppercase">
+          {t('Action')}
+        </Text>
+        <ClickableColumnHeader
+          color="textDisabled"
+          fontSize="12px"
+          bold
+          onClick={() => handleSort(SORT_FIELD.amountUSD)}
+          textTransform="uppercase"
+        >
+          {t('Total Value')} {arrow(SORT_FIELD.amountUSD)}
+        </ClickableColumnHeader>
+        <ClickableColumnHeader
+          color="textDisabled"
+          fontSize="12px"
+          bold
+          onClick={() => handleSort(SORT_FIELD.amountToken0)}
+          textTransform="uppercase"
+        >
+          {t('Token Amount')} {arrow(SORT_FIELD.amountToken0)}
+        </ClickableColumnHeader>
+        <ClickableColumnHeader
+          color="textDisabled"
+          fontSize="12px"
+          bold
+          onClick={() => handleSort(SORT_FIELD.amountToken1)}
+          textTransform="uppercase"
+        >
+          {t('Token Amount')} {arrow(SORT_FIELD.amountToken1)}
+        </ClickableColumnHeader>
+        <ClickableColumnHeader
+          color="textDisabled"
+          fontSize="12px"
+          bold
+          onClick={() => handleSort(SORT_FIELD.sender)}
+          textTransform="uppercase"
+        >
+          {t('Account')} {arrow(SORT_FIELD.sender)}
+        </ClickableColumnHeader>
+        <ClickableColumnHeader
+          color="textDisabled"
+          fontSize="12px"
+          bold
+          onClick={() => handleSort(SORT_FIELD.timestamp)}
+          textTransform="uppercase"
+        >
+          {t('Time')} {arrow(SORT_FIELD.timestamp)}
+        </ClickableColumnHeader>
+      </ResponsiveGrid>
+      <Break />
 
-        {transactions ? (
-          <>
-            {sortedTransactions.map((transaction, index) => {
-              if (transaction) {
-                return (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <Fragment key={index}>
-                    <DataRow transaction={transaction} />
-                    <Break />
-                  </Fragment>
-                )
-              }
-              return null
-            })}
-            {sortedTransactions.length === 0 ? (
-              <Flex justifyContent="center">
-                <Text>{t('No Transactions')}</Text>
-              </Flex>
-            ) : undefined}
-            <PageButtons>
+      {transactions ? (
+        <>
+          {sortedTransactions.map((transaction, index) => {
+            if (transaction) {
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <Fragment key={index}>
+                  <DataRow transaction={transaction} />
+                  <Break />
+                </Fragment>
+              )
+            }
+            return null
+          })}
+          {sortedTransactions.length === 0 ? (
+            <Flex justifyContent="center">
+              <Text>{t('No Transactions')}</Text>
+            </Flex>
+          ) : undefined}
+          <PageButtons>
+            <Flex>
+              <Text color='textDisabled'>{t('Showing %page% of %maxPage%', { page, maxPage })}</Text>
+            </Flex>
+            <Flex>
               <Arrow
                 onClick={() => {
                   setPage(page === 1 ? page : page - 1)
@@ -328,17 +346,18 @@ const TransactionTable: React.FC<
               >
                 <ArrowForwardIcon color={page === maxPage ? 'textDisabled' : 'primary'} />
               </Arrow>
-            </PageButtons>
-          </>
-        ) : (
-          <>
-            <TableLoader />
-            {/* spacer */}
-            <Box />
-          </>
-        )}
-      </TableWrapper>
-    </Wrapper>
+            </Flex>
+          </PageButtons>
+        </>
+      ) : (
+        <>
+          <TableLoader />
+          {/* spacer */}
+          <Box />
+        </>
+      )}
+    </TableWrapper>
+    // </Wrapper>
   )
 }
 

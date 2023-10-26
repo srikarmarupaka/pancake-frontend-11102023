@@ -23,6 +23,10 @@ const Container = styled.div`
 
 const StyledInput = styled(Input)`
   z-index: 9999;
+  background: ${({ theme }) => theme.colors.background};
+  border-radius: 8px;
+  padding: 10px;
+  height: 50px;
   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
 `
 
@@ -234,7 +238,7 @@ const Search = () => {
         {isLoading && <Skeleton />}
         {showMessage && <Text>{noTokensMessage}</Text>}
         {!showWatchlist && debouncedSearchTerm.length < MINIMUM_SEARCH_CHARACTERS && (
-          <Text>{t('Search liquidity pairs or tokens')}</Text>
+          <Text>{t('Search pools or tokens')}</Text>
         )}
       </>
     )
@@ -252,7 +256,7 @@ const Search = () => {
         {isLoading && <Skeleton />}
         {showMessage && <Text>{noPoolsMessage}</Text>}
         {!showWatchlist && debouncedSearchTerm.length < MINIMUM_SEARCH_CHARACTERS && (
-          <Text>{t('Search liquidity pairs or tokens')}</Text>
+          <Text>{t('Search pools or tokens')}</Text>
         )}
       </>
     )
@@ -270,7 +274,7 @@ const Search = () => {
           onChange={(e) => {
             setValue(e.target.value)
           }}
-          placeholder={t('Search liquidity pairs or tokens')}
+          placeholder={t('Search pools or tokens')}
           ref={inputRef}
           onFocus={() => {
             setShowMenu(true)
