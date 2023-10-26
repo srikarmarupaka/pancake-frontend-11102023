@@ -34,10 +34,11 @@ export const modalWrapperClass = style([
       marginBottom: 0,
     },
     md: {
-      height: '490px',
+      height: '408px',
     },
     lg: {
-      width: '792px',
+      height: '65vh',
+      width: '408px',
     },
   }),
 ])

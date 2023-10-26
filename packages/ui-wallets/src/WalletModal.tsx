@@ -3,6 +3,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { AtomBox } from '@pancakeswap/ui/components/AtomBox'
 import {
   Button,
+  Flex,
   Heading,
   Image,
   LinkExternal,
@@ -78,12 +79,12 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
 
   return (
     <AtomBox position="relative" zIndex="modal" className={modalWrapperClass}>
-      <AtomBox position="absolute" style={{ top: '-50px' }}>
+      {/* <AtomBox position="absolute" style={{ top: '-50px' }}>
         <TabMenu activeIndex={index} onItemClick={setIndex} gap="0px" isColorInverse>
           <Tab>{t('Connect Wallet')}</Tab>
           <Tab>{t('What’s a Web3 Wallet?')}</Tab>
         </TabMenu>
-      </AtomBox>
+      </AtomBox> */}
       <AtomBox
         display="flex"
         position="relative"
@@ -164,12 +165,12 @@ function MobileModal<T>({
         />
       </AtomBox>
       <AtomBox p="24px" borderTop="1">
-        <AtomBox>
+        {/* <AtomBox>
           <Text textAlign="center" color="textSubtle" as="p" mb="24px">
             {t('Haven’t got a crypto wallet yet?')}
           </Text>
-        </AtomBox>
-        <Button as="a" href={docLink} variant="subtle" width="100%" external>
+        </AtomBox> */}
+        <Button as="a" href={docLink} variant="primary" color='backgroundAlt' width="100%" external>
           {docText}
         </Button>
       </AtomBox>
@@ -201,7 +202,7 @@ function WalletSelect<T>({
       overflowY="auto"
       overflowX="hidden"
       px={{ xs: '16px', sm: '48px' }}
-      pb="12px"
+      pb="48px"
       className={walletSelectWrapperClass}
     >
       {walletsToShow.map((wallet) => {
@@ -350,10 +351,19 @@ function DesktopModal<T>({
             }
           }}
         />
-          {/* {!selected && <Intro docLink={docLink} docText={docText} />} */}
+        <Flex
+          position='absolute'
+          bottom={3}
+          width='100%'
+          marginTop={2}
+          backgroundColor='input'
+          justifyContent='space-around'
+        >
+          {!selected && <Intro docLink={docLink} docText={docText} />}
+        </Flex>
         {/* {selected && selected.installed === false && <NotInstalled qrCode={qrCode} wallet={selected} />} */}
       </AtomBox>
-      <AtomBox
+      {/* <AtomBox
         flex={1}
         mx="24px"
         display={{
@@ -381,7 +391,7 @@ function DesktopModal<T>({
           )}
           {selected && selected.installed === false && <NotInstalled qrCode={qrCode} wallet={selected} />}
         </AtomBox>
-      </AtomBox>
+      </AtomBox> */}
     </>
   )
 }
@@ -454,9 +464,9 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
         {t('Haven’t got a wallet yet?')}
       </Heading>
       <Image src="https://cdn.pancakeswap.com/wallets/wallet_intro.png" width={198} height={178} /> */}
-      <Button as={LinkExternal} color="backgroundAlt" variant="primary" href={docLink}>
-        {docText}
-      </Button>
+        <Button as="a" href={docLink} color='backgroundAlt' variant="primary" width="70%" external>
+          {docText}
+        </Button>
     </>
   )
 }
