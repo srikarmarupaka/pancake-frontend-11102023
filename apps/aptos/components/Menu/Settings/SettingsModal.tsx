@@ -208,7 +208,7 @@ export const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>
   return (
     <Modal
       title={t('Settings')}
-      headerBackground="gradientCardHeader"
+      headerBackground="background"
       onDismiss={onDismiss}
       style={{ maxWidth: '420px' }}
     >

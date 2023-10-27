@@ -32,7 +32,7 @@ export const ModalBody = styled(Flex)`
   max-height: calc(90vh - ${mobileFooterHeight}px);
   ${({ theme }) => theme.mediaQueries.md} {
     display: flex;
-    max-height: 90vh;
+    // max-height: 90vh;
   }
 `;
 
