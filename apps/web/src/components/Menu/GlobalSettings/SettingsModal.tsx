@@ -207,7 +207,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
               </Flex>
               <TransactionSettings />
             </Flex>
-            {SUPPORT_ZAP.includes(chainId) && (
+            {/* {SUPPORT_ZAP.includes(chainId) && (
               <Flex justifyContent="space-between" alignItems="center" mb="24px">
                 <Flex alignItems="center">
                   <Text>{t('Zap (Beta)')}</Text>
@@ -238,7 +238,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                   }}
                 />
               </Flex>
-            )}
+            )} */}
             <Flex justifyContent="space-between" alignItems="center" mb="24px">
               <Flex alignItems="center">
                 <Text>{t('Expert Mode')}</Text>

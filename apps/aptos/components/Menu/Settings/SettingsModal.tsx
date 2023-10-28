@@ -253,7 +253,7 @@ export const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>
                 ml="4px"
               />
             </Flex>
-            <PancakeToggle checked={audioPlay} onChange={(e) => setAudioPlay(e.target.checked)} scale="md" />
+            <Toggle id="toggle-flippy-sounds" checked={audioPlay} onChange={(e) => setAudioPlay(e.target.checked)} scale="md" />
           </Flex>
         </Flex>
       </ScrollableContainer>
