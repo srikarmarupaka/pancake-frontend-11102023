@@ -329,7 +329,7 @@ export default function CurrencyInputPanel({
           )}
           {/* <InputRow selected={disableCurrencySelect}> */}
             {account && currency && selectedCurrencyBalance?.greaterThan(0) && !disabled && label !== 'To' && (
-              <Flex alignItems="right" justifyContent="right">
+              <Flex alignItems="right" justifyContent="right" padding={2}>
                 {maxAmount?.greaterThan(0) &&
                   showQuickInputButton &&
                   onPercentInput &&

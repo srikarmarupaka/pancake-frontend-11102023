@@ -54,7 +54,7 @@ const NETWORK = '56'
 export const generateMetaData = () => {
   return {
     plugins: {},
-    network: 56,
+    network: 97,
     strategies: STRATEGIES,
   }
 }
