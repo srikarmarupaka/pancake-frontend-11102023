@@ -43,7 +43,7 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
   return (
     <AtomBox display={{ xs: "none", sm: "block" }} asChild>
       <SubMenuItemWrapper $isMobileOnly={isMobileOnly} {...props}>
-        <AtomBox display={{ xs: "block", md: "none" }} asChild>
+        {/* <AtomBox display={{ xs: "block", md: "none" }} asChild>
           <LeftMaskLayer
             ref={chevronLeftRef}
             onClick={() => {
@@ -64,7 +64,7 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
           >
             <ChevronRightIcon />
           </RightMaskLayer>
-        </AtomBox>
+        </AtomBox> */}
         <StyledSubMenuItems
           justifyContent={[isMobileOnly ? "flex-end" : "start", null, "center"]}
           // pl={["12px", null, "0px"]}
