@@ -4,7 +4,7 @@ FROM node:19 as builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY package*.json yarn.lock ./
+COPY package*.json turbo.json yarn.lock ./
 
 # Install Next.js and its dependencies
 RUN yarn install
