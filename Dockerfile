@@ -4,13 +4,10 @@ FROM node:19 as builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY package*.json turbo.json yarn.lock ./
+COPY . .
 
 # Install Next.js and its dependencies
 RUN yarn install
-
-# Copy the rest of the application code into the container
-COPY . .
 
 # Build the Next.js application for production
 RUN yarn build
