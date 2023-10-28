@@ -180,14 +180,6 @@ const ConfirmZapInModal: React.FC<React.PropsWithChildren<InjectedModalProps & C
         poolTokenPercentage={poolTokenPercentage}
         price={price}
       >
-        <PairDistribution
-          title={t('Input')}
-          percent={inputPercent}
-          currencyA={swapInCurrencyAmount ? currencies[zapSwapTokenField] : undefined}
-          currencyAValue={swapInCurrencyAmount?.toSignificant(6)}
-          currencyB={swapOutCurrencyAmount ? currencies[zapSwapOutTokenField] : undefined}
-          currencyBValue={swapOutCurrencyAmount?.toSignificant(6)}
-        />
         {swapOutTokenAmount &&
           swapInTokenAmount &&
           currencies[zapSwapTokenField] &&
@@ -212,15 +204,6 @@ const ConfirmZapInModal: React.FC<React.PropsWithChildren<InjectedModalProps & C
           )}
         <AutoColumn gap="4px">
           {tooltipVisible && tooltip}
-          <PairDistribution
-            tooltipTargetRef={targetRef}
-            title={t('Pooled')}
-            percent={0.5}
-            currencyA={currencies[zapSwapTokenField]}
-            currencyAValue={tokenDeposited?.[zapSwapTokenField]?.toSignificant(6)}
-            currencyB={currencies[zapSwapOutTokenField]}
-            currencyBValue={tokenDeposited?.[zapSwapOutTokenField]?.toSignificant(6)}
-          />
         </AutoColumn>
       </AddLiquidityModalHeader>
     )

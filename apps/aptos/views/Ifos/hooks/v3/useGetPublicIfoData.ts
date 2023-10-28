@@ -57,7 +57,7 @@ const initState = {
 export const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const resources = useIfoResources(ifo)
 
-  // TODO: Currently we only support CAKE Price
+  // TODO: Currently we only support BTAF Price
   const { data: cakePrice } = useCakePrice()
 
   const currencyPriceInUSD = useMemo(() => new BigNumber(cakePrice), [cakePrice])

@@ -16,17 +16,17 @@ const PredictionConfigProviders = ({ children }) => {
   const [selectedToken, setConfig] = useState(() => {
     const initToken = localStorage?.getItem(PREDICTION_TOKEN_KEY) as PredictionSupportedSymbol
 
-    if ([PredictionSupportedSymbol.BNB, PredictionSupportedSymbol.CAKE].includes(initToken)) {
+    if ([PredictionSupportedSymbol.BNB, PredictionSupportedSymbol.BTAF].includes(initToken)) {
       return initToken
     }
 
-    return PredictionSupportedSymbol.CAKE
+    return PredictionSupportedSymbol.BTAF
   })
 
   useEffect(() => {
     const upperToken = _toUpper(token as string) as PredictionSupportedSymbol
 
-    if ([PredictionSupportedSymbol.BNB, PredictionSupportedSymbol.CAKE].includes(upperToken)) {
+    if ([PredictionSupportedSymbol.BNB, PredictionSupportedSymbol.BTAF].includes(upperToken)) {
       setConfig(upperToken)
       localStorage?.setItem(PREDICTION_TOKEN_KEY, upperToken)
     }

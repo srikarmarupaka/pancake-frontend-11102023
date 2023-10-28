@@ -62,13 +62,7 @@ const ConfirmAddLiquidityModal: React.FC<
         noLiquidity={noLiquidity}
         currencies={currencies}
       >
-        <PairDistribution
-          title={t('Input')}
-          percent={percent}
-          currencies={currencies}
-          currencyAValue={formatAmountDisplay(parsedAmounts[Field.CURRENCY_A])}
-          currencyBValue={formatAmountDisplay(parsedAmounts[Field.CURRENCY_B])}
-        />
+
       </AddLiquidityModalHeader>
     )
   }, [percent, liquidityMinted, noLiquidity, parsedAmounts, poolTokenPercentage, price, t, currencies])

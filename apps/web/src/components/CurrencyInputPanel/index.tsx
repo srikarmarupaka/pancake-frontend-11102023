@@ -164,7 +164,7 @@ export default function CurrencyInputPanel({
   const [currentClickedPercent, setCurrentClickedPercent] = useState('')
 
   const isAtPercentMax = (maxAmount && value === maxAmount.toExact()) || (lpPercent && lpPercent === '100')
-  const labelTo = label.split(' ').filter(l => l==='To')[0]
+  const labelTo = label?.split(' ')?.filter(l => l==='To')[0]
 
   return (
     <Box position="relative" id={id}>

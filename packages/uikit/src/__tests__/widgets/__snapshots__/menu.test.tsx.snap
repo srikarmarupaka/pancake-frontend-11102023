@@ -2845,7 +2845,7 @@ exports[`renders correctly 1`] = `
               rel="noreferrer noopener"
               target="_blank"
             >
-              CAKE
+              BTAF
             </a>
           </li>
           <li
@@ -3809,7 +3809,7 @@ exports[`renders correctly 1`] = `
             scale="sm"
             target="_blank"
           >
-            Buy CAKE
+            Buy BTAF
             <svg
               class="c57"
               color="backgroundAlt"

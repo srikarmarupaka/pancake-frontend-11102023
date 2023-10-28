@@ -83,7 +83,7 @@ const MenuConfig = [
     href: '/aptos',
     items: [
       {
-        label: 'CAKE Bridging',
+        label: 'BTAF Bridging',
         href: '/aptos',
       },
       {

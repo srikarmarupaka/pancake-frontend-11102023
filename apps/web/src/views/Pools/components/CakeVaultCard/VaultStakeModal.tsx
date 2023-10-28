@@ -159,7 +159,7 @@ const VaultStakeModal: React.FC<React.PropsWithChildren<VaultStakeModalProps>> =
   )
 
   const handleWithdrawal = async () => {
-    // trigger withdrawAll function if the withdrawal will leave 0.00001 CAKE or less
+    // trigger withdrawAll function if the withdrawal will leave 0.00001 BTAF or less
     const isWithdrawingAll = stakingMax.minus(convertedStakeAmount).lte(MIN_LOCK_AMOUNT)
 
     const receipt = await fetchWithCatchTxError(() => {

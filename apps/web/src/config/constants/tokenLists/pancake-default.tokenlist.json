@@ -1,5 +1,5 @@
 {
-  "name": "PancakeSwap Default List",
+  "name": "BTAFSwap Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -51,8 +51,8 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
     },
     {
-      "name": "PancakeSwap Token",
-      "symbol": "CAKE",
+      "name": "BTAFSwap Token",
+      "symbol": "BTAF",
       "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
       "chainId": 56,
       "decimals": 18,
@@ -115,8 +115,8 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0xA7f552078dcC247C2684336020c03648500C6d9F.png"
     },
     {
-      "name": "PancakeSwap Token",
-      "symbol": "CAKE",
+      "name": "BTAFSwap Token",
+      "symbol": "BTAF",
       "address": "0xFa60D973F7642B748046464e165A65B7323b0DEE",
       "chainId": 97,
       "decimals": 18,

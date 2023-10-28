@@ -17,7 +17,7 @@ const AptosBridgeMessage = () => {
       >
         <Flex flexDirection="column">
           <MessageText>
-            For CAKE bridging, the waiting time is around 3-10 mins. For assets other than CAKE, outbound transfers are
+            For BTAF bridging, the waiting time is around 3-10 mins. For assets other than BTAF, outbound transfers are
             subject to 500.000 block confirmations, estimated to last ~2 days.
           </MessageText>
           <MessageText mb="5px">

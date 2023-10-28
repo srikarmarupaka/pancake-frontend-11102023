@@ -62,14 +62,14 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
       : ''
 
   const lpLabel = farm.lpSymbol
-  const earnLabel = farm.dual ? farm.dual.earnLabel : t('CAKE + Fees')
+  const earnLabel = farm.dual ? farm.dual.earnLabel : t('BTAF + Fees')
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: farm.quoteToken?.address,
     tokenAddress: farm.token?.address,
   })
   const addLiquidityUrl = `/add/${liquidityUrlPathParts}`
-  const isPromotedFarm = farm.token?.symbol === 'CAKE'
+  const isPromotedFarm = farm.token?.symbol === 'BTAF'
 
   const toggleExpandableSection = useCallback(() => {
     setShowExpandableSection((prev) => !prev)

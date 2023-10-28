@@ -12,7 +12,7 @@ export default {
     displayedDecimals: 4,
     token: bscTokens.bnb,
   },
-  CAKE: {
+  BTAF: {
     address: getAddress(addresses.predictionsCAKE),
     api: GRAPH_API_PREDICTION_CAKE,
     chainlinkOracleAddress: getAddress(addresses.chainlinkOracleCAKE),

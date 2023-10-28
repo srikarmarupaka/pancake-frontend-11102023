@@ -7,6 +7,7 @@ export const BodyWrapper = styled(Card)`
   border: 0px;
   width: 100%;
   z-index: 1;
+  overflow: auto;
 `
 
 /**

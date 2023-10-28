@@ -14,20 +14,22 @@ const LiquidityPage = () => {
   return (
     <>
       <PageMeta title={t('Liquidity')} />
-      <LiquidityCard>
-        <LiquidityCard.Header
-          title={t('Your Liquidity')}
-          subtitle={t('Remove liquidity to receive tokens back')}
-          config={<SettingsButton />}
-        />
-        <LiquidityCard.ListBody>
-          <HasAccount fallbackComp={<LiquidityNotConnect />}>
-            <LiquidityList />
-          </HasAccount>
-        </LiquidityCard.ListBody>
-        <LiquidityCard.Footer>
-          <GotoAddLiquidityButton />
-        </LiquidityCard.Footer>
+      <LiquidityCard style={{overflow: 'auto'}}>
+        <div style={{overflow: 'auto'}}>
+          <LiquidityCard.Header
+              title={t('Your Liquidity')}
+              subtitle={t('Remove liquidity to receive tokens back')}
+              config={<SettingsButton />}
+          />
+          <LiquidityCard.ListBody>
+            <HasAccount fallbackComp={<LiquidityNotConnect />}>
+              <LiquidityList />
+            </HasAccount>
+          </LiquidityCard.ListBody>
+          <LiquidityCard.Footer>
+            <GotoAddLiquidityButton />
+          </LiquidityCard.Footer>
+        </div>
       </LiquidityCard>
     </>
   )

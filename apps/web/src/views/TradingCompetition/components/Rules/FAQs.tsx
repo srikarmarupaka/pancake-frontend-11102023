@@ -35,7 +35,7 @@ const FAQ = () => {
           <FoldableText title={t('Eligible trading pairs')} mt="24px">
             <Text fontSize="14px" color="textSubtle">
               {t(
-                'Only trades on DAR/BNB, CAKE/BNB, and CAKE/BUSD pairs will be included in volume calculations. Please note that the volume from limit orders will not be included.',
+                'Only trades on DAR/BNB, BTAF/BNB, and BTAF/BUSD pairs will be included in volume calculations. Please note that the volume from limit orders will not be included.',
               )}
             </Text>
           </FoldableText>
@@ -57,7 +57,7 @@ const FAQ = () => {
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'Prizes to be distributed in CAKE and DAR in a distribution of 1:5 and shared by all members of each respective tier.',
+                'Prizes to be distributed in BTAF and DAR in a distribution of 1:5 and shared by all members of each respective tier.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">
@@ -74,13 +74,13 @@ const FAQ = () => {
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'In the event of a disagreement concerning the final winning team or rank, PancakeSwap will have the final say.',
+                'In the event of a disagreement concerning the final winning team or rank, BTAFSwap will have the final say.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'PancakeSwap can and will disqualify any team or specific members that are proven to have taken malicious action or attempt to “cheat” in any way.',
+                'BTAFSwap can and will disqualify any team or specific members that are proven to have taken malicious action or attempt to “cheat” in any way.',
               )}
             </Text>
           </FoldableText>

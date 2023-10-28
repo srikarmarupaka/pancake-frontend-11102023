@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import { CAKE } from '@pancakeswap/tokens'
+import { BTAF } from '@pancakeswap/tokens'
 import { useMemo } from 'react'
 import BigNumber from 'bignumber.js'
 import { getFullDisplayBalance, getBalanceAmount } from '@pancakeswap/utils/formatBalance'
@@ -24,14 +24,14 @@ const useBCakeProxyBalance = () => {
     },
   )
 
-  const balanceAmount = useMemo(() => getBalanceAmount(data, CAKE[chainId].decimals), [data, chainId])
+  const balanceAmount = useMemo(() => getBalanceAmount(data, BTAF[chainId].decimals), [data, chainId])
 
   return useMemo(() => {
     return {
       bCakeProxyBalance: data ? balanceAmount.toNumber() : 0,
       bCakeProxyDisplayBalance: data
         ? balanceAmount.isGreaterThan(SMALL_AMOUNT_THRESHOLD)
-          ? getFullDisplayBalance(data, CAKE[chainId].decimals, 3)
+          ? getFullDisplayBalance(data, BTAF[chainId].decimals, 3)
           : '< 0.001'
         : null,
       isLoading: status !== FetchStatus.Fetched,

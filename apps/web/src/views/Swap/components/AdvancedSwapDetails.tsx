@@ -115,7 +115,7 @@ function TradeSummary({
                   </Text>
                   <Text>- {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}</Text>
                   <Text>- {t('%amount% to the Treasury', { amount: treasuryFeePercent })}</Text>
-                  <Text>- {t('%amount% towards CAKE buyback and burn', { amount: buyBackFeePercent })}</Text>
+                  <Text>- {t('%amount% towards BTAF buyback and burn', { amount: buyBackFeePercent })}</Text>
                   {hasStablePair && (
                     <>
                       <Text mt="12px">
@@ -137,7 +137,7 @@ function TradeSummary({
                     </Text>
                     :{' '}
                     {t(
-                      'PancakeSwap does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
+                      'BTAFSwap does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
                     )}
                   </Text>
                 </>

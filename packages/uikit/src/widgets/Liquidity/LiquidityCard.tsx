@@ -11,6 +11,7 @@ export const CardWrapper = styled(Card)`
   max-width: 436px;
   width: 100%;
   z-index: 1;
+  overflow: auto;
 `;
 
 export const LiquidityCard = ({ children, ...props }: LiquidityCardProps) => (

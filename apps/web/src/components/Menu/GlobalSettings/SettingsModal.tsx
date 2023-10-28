@@ -115,10 +115,6 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
               <Text bold textTransform="uppercase" fontSize="18px" color="secondary" mb="24px">
                 {t('Global')}
               </Text>
-              <Flex justifyContent="space-between" mb="24px">
-                <Text>{t('Dark mode')}</Text>
-                <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
-              </Flex>
               <Flex justifyContent="space-between" alignItems="center" mb="24px">
                 <Flex alignItems="center">
                   <Text>{t('Subgraph Health Indicator')}</Text>
@@ -139,60 +135,6 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                   }}
                 />
               </Flex>
-              <Flex justifyContent="space-between" alignItems="center" mb="24px">
-                <Flex alignItems="center">
-                  <Text>{t('Show username')}</Text>
-                  <QuestionHelper
-                    text={t('Shows username of wallet instead of bunnies')}
-                    placement="top-start"
-                    ml="4px"
-                  />
-                </Flex>
-                <Toggle
-                  id="toggle-username-visibility"
-                  checked={userUsernameVisibility}
-                  scale="md"
-                  onChange={() => {
-                    setUserUsernameVisibility(!userUsernameVisibility)
-                  }}
-                />
-              </Flex>
-              {chainId === ChainId.BSC && (
-                <>
-                  <Flex justifyContent="space-between" alignItems="center" mb="24px">
-                    <Flex alignItems="center">
-                      <Text>{t('Token Risk Scanning')}</Text>
-                      <QuestionHelper
-                        text={
-                          <>
-                            <Text>{t('Automatic risk scanning for the selected token')}</Text>
-                            <Text as="span">{t('Risk scan results are provided by a third party')}</Text>
-                            <Link style={{ display: 'inline' }} ml="4px" external href="https://www.avengerdao.org">
-                              AvengerDAO
-                            </Link>
-                            <Text my="8px">
-                              {t(
-                                'It is a tool for indicative purposes only to allow users to check the reference risk level of a BNB Chain Smart Contract. Please do your own research - interactions with any BNB Chain Smart Contract is at your own risk.',
-                              )}
-                            </Text>
-                          </>
-                        }
-                        placement="top-start"
-                        ml="4px"
-                      />
-                    </Flex>
-                    <Toggle
-                      id="toggle-username-visibility"
-                      checked={tokenRisk}
-                      scale="md"
-                      onChange={() => {
-                        setTokenRisk(!tokenRisk)
-                      }}
-                    />
-                  </Flex>
-                  <GasSettings />
-                </>
-              )}
             </Flex>
           </>
         )}

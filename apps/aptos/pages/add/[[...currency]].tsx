@@ -8,7 +8,7 @@ import ChoosePair from 'components/Liquidity/components/ChoosePair'
 import withLPValues from 'components/Liquidity/hocs/withLPValues'
 import useCurrencySelectRoute, { CurrencySelectorContext } from 'components/Liquidity/hooks/useCurrencySelectRoute'
 import useMintPair, { MintPairContext } from 'components/Liquidity/hooks/useMintPair'
-import { CAKE } from 'config/coins'
+import { BTAF } from 'config/coins'
 import { useIsTransactionUnsupported, useIsTransactionWarning } from 'hooks/Trades'
 import useNativeCurrency from 'hooks/useNativeCurrency'
 import { useActiveChainId } from 'hooks/useNetwork'
@@ -30,7 +30,7 @@ const AddLiquidityPage = () => {
   const native = useNativeCurrency()
   const activeChainId = useActiveChainId()
 
-  const defaultCurrencies = useMemo(() => [native.address, CAKE[activeChainId].address], [native, activeChainId])
+  const defaultCurrencies = useMemo(() => [native.address, BTAF[activeChainId].address], [native, activeChainId])
 
   const currencies = useCurrencySelectRoute(defaultCurrencies)
   const mintPairState = useMintPair(currencies)
@@ -48,25 +48,27 @@ const AddLiquidityPage = () => {
   return (
     <>
       <PageMeta title={t('Add Liquidity')} />
-      <LiquidityUI.LiquidityCard>
-        <LiquidityUI.LiquidityCard.Header
-          title={t('Add Liquidity')}
-          subtitle={t('Receive LP tokens and earn 0.17% trading fees')}
-          helper={t(
-            'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pair.',
-          )}
-          config={<SettingsButton />}
-          backTo={showAddLiquidity ? goToChoose : '/liquidity'}
-        />
-        <MintPairContext.Provider value={mintPairState}>
-          <CurrencySelectorContext.Provider value={currencies}>
-            {showAddLiquidity ? (
-              <AddLiquidityForm notSupportPair={addIsUnsupported || addIsWarning} />
-            ) : (
-              <ChoosePair onNext={goToAdd} />
-            )}
-          </CurrencySelectorContext.Provider>
-        </MintPairContext.Provider>
+      <LiquidityUI.LiquidityCard style={{overflow: "auto"}}>
+        <div style={{overflow: "auto"}}>
+          <LiquidityUI.LiquidityCard.Header
+              title={t('Add Liquidity')}
+              subtitle={t('Receive LP tokens and earn 0.17% trading fees')}
+              helper={t(
+                  'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pair.',
+              )}
+              config={<SettingsButton />}
+              backTo={showAddLiquidity ? goToChoose : '/liquidity'}
+          />
+          <MintPairContext.Provider value={mintPairState}>
+            <CurrencySelectorContext.Provider value={currencies}>
+              {showAddLiquidity ? (
+                  <AddLiquidityForm notSupportPair={addIsUnsupported || addIsWarning} />
+              ) : (
+                  <ChoosePair onNext={goToAdd} />
+              )}
+            </CurrencySelectorContext.Provider>
+          </MintPairContext.Provider>
+        </div>
       </LiquidityUI.LiquidityCard>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>

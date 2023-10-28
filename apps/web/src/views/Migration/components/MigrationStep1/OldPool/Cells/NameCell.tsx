@@ -47,8 +47,8 @@ const NameCell: React.FC<React.PropsWithChildren<NameCellProps>> = ({ pool }) =>
     title = vaultPoolConfig[vaultKey].name
     subtitle = vaultPoolConfig[vaultKey].description
   } else if (isManualCakePool) {
-    title = t('Manual CAKE')
-    subtitle = `${t('Earn')} CAKE ${t('Stake').toLocaleLowerCase()} CAKE`
+    title = t('Manual BTAF')
+    subtitle = `${t('Earn')} BTAF ${t('Stake').toLocaleLowerCase()} BTAF`
   }
 
   return (

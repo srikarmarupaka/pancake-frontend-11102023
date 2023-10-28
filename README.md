@@ -1,4 +1,4 @@
-# 🥞 Pancake Frontend
+#  Pancake Frontend
 
 <p align="center">
   <a href="https://pancakeswap.finance">

@@ -116,7 +116,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
             <Flex flexGrow={1} justifyContent="flex-end">
               <Image
                 src={
-                  ifo.currency.symbol === 'CAKE'
+                  ifo.currency.symbol === 'BTAF'
                     ? '/images/cake.svg'
                     : `/images/farms/${currency.symbol.split(' ')[0].toLowerCase()}.svg`
                 }
@@ -149,7 +149,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
             >
               {valueWithTokenDecimals.isGreaterThan(userCurrencyBalance)
                 ? t('Insufficient Balance')
-                : t('Exceeded max CAKE entry')}
+                : t('Exceeded max BTAF entry')}
             </Text>
           )}
           <Text color="textSubtle" textAlign="right" fontSize="12px" mb="16px">
@@ -180,7 +180,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
           {(vestingInformation?.percentage ?? 0) > 0 && <IfoHasVestingNotice url={articleUrl} />}
           <Text color="textSubtle" fontSize="12px" mb="24px">
             {t(
-              'If you don’t commit enough CAKE, you may not receive a meaningful amount of IFO tokens, or you may not receive any IFO tokens at all.',
+              'If you don’t commit enough BTAF, you may not receive a meaningful amount of IFO tokens, or you may not receive any IFO tokens at all.',
             )}
             <Link
               fontSize="12px"
