@@ -76,6 +76,7 @@ const ConfirmAddLiquidityModal: React.FC<
         price={price}
         noLiquidity={noLiquidity}
       >
+        <></>
       </AddLiquidityModalHeader>
     )
   }, [allowedSlippage, percent, currencies, liquidityMinted, noLiquidity, parsedAmounts, poolTokenPercentage, price, t])
