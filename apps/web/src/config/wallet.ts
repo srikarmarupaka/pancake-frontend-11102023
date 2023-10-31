@@ -205,7 +205,7 @@ export const createWallets = (chainId: number, connect: any) => {
         ...config,
         {
           id: 'injected',
-          title: 'Injected',
+          title: 'MyEtherWallet',
           icon: WalletFilledIcon,
           connectorId: ConnectorNames.Injected,
           installed: typeof window !== 'undefined' && Boolean(window.ethereum),
