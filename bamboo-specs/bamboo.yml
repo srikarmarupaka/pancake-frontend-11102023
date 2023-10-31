@@ -109,7 +109,7 @@ release-naming:
   auto-increment: true
   auto-increment-variables: []
 environments:
-  - Production server
+  - Production Server
 Production Server:
   triggers:
     - build-success
