@@ -145,7 +145,7 @@ deployment-permissions:
       - view
       - edit
 environment-permissions:
-  - Development Server:
+  - Production Server:
       - users:
           - nick
         permissions:
