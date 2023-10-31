@@ -26,22 +26,13 @@ Default Job:
         scope: RESULT
         namespace: inject
         description: Inject Variable
-    - any-task:
-        plugin-key: com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli
-        configuration:
-          commandOption: build
-          repository: docker.atican.dev/${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber}
-          dockerfileOption: existing
-          nocache: 'false'
-          save: 'false'
-        description: Build Image
-    - any-task:
-        plugin-key: com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli
-        configuration:
-          commandOption: push
-          pushRepository: docker.atican.dev/${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber}
-          registryOption: custom
-        description: Push Image
+    - ssh:
+        host: 52.73.230.218
+        port: 22
+        command: 'cd /home/ubuntu/btaf-frontend/repo/btaf-swap-frontend && docker build . -t ${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber}'
+        authentication:
+          username: ubuntu
+          shared-credentials: ID_AWS  
   artifact-subscriptions: []
 branches:
   create: manually
@@ -113,20 +104,17 @@ deployment:
   name: Btaf Swap Frontend Deployment
   source-plan: BTAF-FRONTEND
 release-naming:
-  next-version-name: release-1
+  next-version-name: release-192
   applies-to-branches: false
   auto-increment: true
   auto-increment-variables: []
 environments:
-  - Development Server
-Development Server:
+  - Production server
+Production Server:
   triggers:
     - build-success
   tasks:
     - clean
-    - checkout:
-        force-clean-build: 'false'
-        description: Checkout Default Repository
     - script:
         interpreter: SHELL
         scripts:
@@ -135,20 +123,15 @@ Development Server:
         file: variables
         scope: LOCAL
         namespace: inject
-    - script:
-        interpreter: SHELL
-        scripts:
-          - echo '{"lastCliUpdateCheck":1658717682549,"cloudrons":{"${bamboo.cloudron_api}":{"apiEndpoint":"${bamboo.cloudron_api}","token":"${bamboo.cloudron_token_secret}"},"default":"${bamboo.cloudron_api}"}}' > ~/.cloudron.json
-          - npx cloudron update --image docker.atican.dev/${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber} --app ${bamboo.inject.PLAN_NAME} --no-wait || npx cloudron install --image docker.atican.dev/${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber} -l ${bamboo.inject.PLAN_NAME}
-  final-tasks:
-    - script:
-        interpreter: SHELL
-        scripts:
-          - rm -rf ~/.cloudron.json
-  variables:
-    cloudron_api: my.aticloud.atican.dev
-    cloudron_username: nick
-    cloudron_token_secret: BAMSCRT@0@0@SVAlAyWq65MlzPsZfHqnDiO9gzu987/P+DAEdgJpcoXePc05edNFqV3yTw3HoRfyAutNUN3AXtQvDtI0OSfHQtWVj9wyruB++iIlLLmJeQY=
+    - ssh:
+        host: 52.73.230.218
+        port: 22
+        command: 'source ~/.profile && source ~/.bash_profile && cd /home/ubuntu/btaf-frontend && sed -i "s/image: ${bamboo.inject.PLAN_NAME}:[a-zA-Z0-9!@#|,.<>/?-]*/image: ${bamboo.inject.PLAN_NAME}:${bamboo.buildNumber}/g" docker-compose.yaml  && docker-compose up -d frontend'
+        authentication:
+          username: ubuntu
+          shared-credentials: ID_AWS
+  final-tasks: []
+  variables: {}
   requirements: []
   notifications: []
 ---
