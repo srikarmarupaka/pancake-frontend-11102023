@@ -25,7 +25,7 @@ const Providers: React.FC<React.PropsWithChildren<{ store: Store; children: Reac
   return (
     <WagmiProvider client={client}>
       <Provider store={store}>
-        <NextThemeProvider forcedTheme={'light'} themes={['light']}>
+        <NextThemeProvider forcedTheme="light" themes={['light']}>
           <StyledUIKitProvider>
             <LanguageProvider>
               <SWRConfig
