@@ -5,7 +5,7 @@ import {
   checkIsStableSwap,
   getMultiChainQueryEndPointWithStableSwap,
   MultiChainName,
-  multiChainTokenBlackList,
+  multiChainTokenBlackList, multiChainTokenWhiteList,
 } from '../../constant'
 import { useGetChainName } from '../../hooks'
 
@@ -41,6 +41,7 @@ const fetchTopPools = async (chainName: MultiChainName, timestamp24hAgo: number)
     `
     const data = await getMultiChainQueryEndPointWithStableSwap(chainName).request<TopPoolsResponse>(query, {
       blacklist: multiChainTokenBlackList[chainName],
+      whitelist: multiChainTokenWhiteList[chainName],
     })
     // pairDayDatas id has compound id "0xPOOLADDRESS-NUMBERS", extracting pool address with .split('-')
     return data.pairDayDatas.map((p) => p.id.split('-')[0])

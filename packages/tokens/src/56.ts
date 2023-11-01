@@ -14,7 +14,7 @@ export const bscTokens = {
   ),
   btaf: new ERC20Token(
     ChainId.BSC,
-    '0xcAE3d82D63e2b0094bc959752993D3D3743B5D08',
+    '0xFa60D973F7642B748046464e165A65B7323b0DEE',
     18,
     'BTAF',
     'BTAF',

@@ -68,6 +68,10 @@ const config = {
   async rewrites() {
     return [
       {
+        source: '/bsc-exchange',
+        destination: 'https://proxy-worker.pancake-swap.workers.dev/bsc-exchange',
+      },
+      {
         source: '/info/token/:address',
         destination: '/info/tokens/:address',
       },

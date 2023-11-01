@@ -34,11 +34,11 @@ const fetchTopTokens = async (chainName: MultiChainName, timestamp24hAgo: number
       ? `where: { date_gt: ${timestamp24hAgo}, token_not_in: $blacklist, dailyVolumeUSD_gt:2000 }`
       : checkIsStableSwap()
       ? ''
-      : `where: { dailyTxns_gt: 300, id_not_in: $blacklist, date_gt: ${timestamp24hAgo}}`
+      : `where: { id_in: $whitelists, id_not_in: $blacklist }`
   const firstCount = 50
   try {
     const query = gql`
-      query topTokens($blacklist: [ID!]) {
+      query topTokens($blacklist: [ID!], $whitelists: [ID!]) {
         tokenDayDatas(
           first: ${firstCount}
           ${whereCondition}
@@ -74,6 +74,7 @@ const fetchTopTokens = async (chainName: MultiChainName, timestamp24hAgo: number
     }
     const data = await getMultiChainQueryEndPointWithStableSwap(chainName).request<TopTokensResponse>(query, {
       blacklist: multiChainTokenBlackList[chainName],
+      whitelists: multiChainTokenWhiteList[chainName],
     })
     // tokenDayDatas id has compound id "0xTOKENADDRESS-NUMBERS", extracting token address with .split('-')
     return union(

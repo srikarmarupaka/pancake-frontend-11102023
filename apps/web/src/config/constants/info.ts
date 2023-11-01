@@ -1,3 +1,5 @@
+import { bscTokens } from "@pancakeswap/tokens/src/56"
+
 export const MINIMUM_SEARCH_CHARACTERS = 2
 
 export const WEEKS_IN_YEAR = 52.1429
@@ -17,7 +19,15 @@ export const ITEMS_PER_INFO_TABLE_PAGE = 10
 // These tokens are either incorrectly priced or have some other issues that spoil the query data
 // None of them present any interest as they have almost 0 daily trade volume
 
-export const BSC_TOKEN_WHITELIST = []
+export const BSC_TOKEN_WHITELIST = [
+  bscTokens.wbnb.address.toLowerCase(),
+  "0xcae3d82d63e2b0094bc959752993d3d3743b5d08",
+  bscTokens.busd.address.toLowerCase(),
+  bscTokens.usdt.address.toLowerCase(),
+  bscTokens.btcb.address.toLowerCase(),
+  bscTokens.eth.address.toLowerCase(),
+  bscTokens.usdc.address.toLowerCase(),
+]
 export const TOKEN_BLACKLIST = [
   // These ones are copied from v1 info
   '0x495c7f3a713870f68f8b418b355c085dfdc412c3',
