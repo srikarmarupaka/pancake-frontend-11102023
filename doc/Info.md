@@ -1,6 +1,6 @@
 # Documentation: Info
 
-A brief overview how Info part of BTAFSwap website works.
+A brief overview how Info part of Btaf website works.
 
 ## Code structure
 

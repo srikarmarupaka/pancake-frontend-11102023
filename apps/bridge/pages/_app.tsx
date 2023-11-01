@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="" />
-        <title>Bridge | BTAFSwap</title>
+        <title>Bridge | Btaf</title>
       </Head>
       <NextThemeProvider>
         <StyledThemeProvider>

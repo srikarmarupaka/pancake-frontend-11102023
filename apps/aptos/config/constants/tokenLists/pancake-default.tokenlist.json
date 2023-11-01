@@ -1,5 +1,5 @@
 {
-  "name": "BTAFSwap Default Aptos List",
+  "name": "Btaf Default Aptos List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 1,
@@ -7,7 +7,7 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://pancakeswap.finance/logo.png",
+  "logoURI": "/logo.png",
   "keywords": ["pancake", "default", "aptos"],
   "schema": "aptos",
   "tokens": [
@@ -212,7 +212,7 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdc.png"
     },
     {
-      "name": "BTAFSwap Token",
+      "name": "Btaf Token",
       "symbol": "BTAF",
       "chainId": 1,
       "decimals": 8,

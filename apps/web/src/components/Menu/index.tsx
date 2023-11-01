@@ -59,7 +59,7 @@ const Menu = (props) => {
         activeItem={activeMenuItem?.href}
         activeSubItem={activeSubMenuItem?.href}
         buyCakeLabel={t('Buy BTAF')}
-        buyCakeLink="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
+        buyCakeLink="https://pancakeswap.finance/swap?outputCurrency=0xcAE3d82D63e2b0094bc959752993D3D3743B5D08&chainId=56"
         {...props}
       />
     </>

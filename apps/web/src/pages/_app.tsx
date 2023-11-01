@@ -72,7 +72,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover BTAFSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for BTAF."
+          content="Cheaper and faster than Uniswap? Discover Btaf, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for BTAF."
         />
         <meta name="theme-color" content="#1FC7D4" />
         {(Component as NextPageWithLayout).mp && (
@@ -98,19 +98,19 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           </PersistGate>
         </Blocklist>
       </Providers>
-      <Script
-        strategy="afterInteractive"
-        id="google-tag"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');
-          `,
-        }}
-      />
+      {/*<Script*/}
+      {/*  strategy="afterInteractive"*/}
+      {/*  id="google-tag"*/}
+      {/*  dangerouslySetInnerHTML={{*/}
+      {/*    __html: `*/}
+      {/*      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':*/}
+      {/*      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],*/}
+      {/*      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=*/}
+      {/*      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);*/}
+      {/*      })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');*/}
+      {/*    `,*/}
+      {/*  }}*/}
+      {/*/>*/}
     </>
   )
 }

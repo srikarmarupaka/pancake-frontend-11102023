@@ -120,7 +120,7 @@ const TrustWalletCampaignBanner = () => {
     >
       <S.Inner>
         <S.LeftWrapper>
-          <StyledBox>BTAFSwap x Trust Wallet</StyledBox>
+          <StyledBox>Btaf x Trust Wallet</StyledBox>
           <Title>{t('Trade and win $10,000 Prize Pool')}</Title>
           <Flex style={{ gap: 8 }} flexWrap={isMobile ? 'wrap' : 'nowrap'}>
             <NextLinkFromReactRouter to="/swap?chain=eth">

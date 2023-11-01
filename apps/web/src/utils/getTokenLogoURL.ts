@@ -9,6 +9,11 @@ const mapping = {
 
 const getTokenLogoURL = memoize(
   (token?: Token) => {
+      if(getAddress(
+          token.address,
+      ).toLowerCase() === '0xcae3d82d63e2b0094bc959752993d3d3743b5d08') {
+          return '/logo.png'
+      }
     if (token && mapping[token.chainId]) {
       return `https://assets-cdn.trustwallet.com/blockchains/${mapping[token.chainId]}/assets/${getAddress(
         token.address,
@@ -21,6 +26,9 @@ const getTokenLogoURL = memoize(
 
 export const getTokenLogoURLByAddress = memoize(
   (address?: string, chainId?: number) => {
+      if(address.toLowerCase() === '0xcae3d82d63e2b0094bc959752993d3d3743b5d08') {
+          return '/logo.png'
+      }
     if (address && chainId && mapping[chainId]) {
       return `https://assets-cdn.trustwallet.com/blockchains/${mapping[chainId]}/assets/${getAddress(address)}/logo.png`
     }

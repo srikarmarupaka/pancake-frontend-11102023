@@ -12,6 +12,14 @@ export const bscTokens = {
     'BNB',
     'https://www.binance.com/',
   ),
+  btaf: new ERC20Token(
+    ChainId.BSC,
+    '0xcAE3d82D63e2b0094bc959752993D3D3743B5D08',
+    18,
+    'BTAF',
+    'BTAF',
+    '',
+  ),
   cake: CAKE_MAINNET,
   gmi: new ERC20Token(
     ChainId.BSC,

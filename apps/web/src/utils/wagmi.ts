@@ -12,7 +12,7 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-const CHAINS = [bsc, mainnet, bscTestnet, goerli]
+const CHAINS = [bsc, bscTestnet]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
@@ -69,7 +69,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'BTAFSwap',
+    appName: 'Btaf',
     appLogoUrl: '/logo.png',
   },
 })
@@ -99,7 +99,7 @@ export const metaMaskConnector = new MetaMaskConnector({
 const bloctoConnector = new BloctoConnector({
   chains,
   options: {
-    defaultChainId: 97,
+    defaultChainId: 56,
     appId: 'e2f2f0cd-3ceb-4dec-b293-bb555f2ed5af',
   },
 })

@@ -2,8 +2,17 @@
  * @see https://github.com/pancakeswap/pancake-frontend/blob/develop/src/config/constants/tokens.ts
  */
 const tokens = {
-  cake: {
+  btaf: {
     symbol: "BTAF",
+    address: {
+      56: "0xcAE3d82D63e2b0094bc959752993D3D3743B5D08",
+      97: "",
+    },
+    decimals: 18,
+    projectLink: "",
+  },
+  cake: {
+    symbol: "CAKE",
     address: {
       56: "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
       97: "0xFa60D973F7642B748046464e165A65B7323b0DEE",

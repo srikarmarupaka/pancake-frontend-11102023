@@ -1,6 +1,6 @@
 {
-  "short_name": "BTAFSwap",
-  "name": "BTAFSwap",
+  "short_name": "Btaf",
+  "name": "Btaf",
   "description": "Farm BTAF with Pancake LP Tokens",
   "homepage_url": "https://aptos.pancakeswap.finance",
   "start_url": ".",

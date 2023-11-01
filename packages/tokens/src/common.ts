@@ -4,9 +4,17 @@ export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
   18,
-  'BTAF',
-  'BTAFSwap Token',
+  'CAKE',
+  'Pancake Token',
   'https://pancakeswap.finance/',
+)
+export const BTAF_MAINNET = new ERC20Token(
+  ChainId.BSC,
+  '0xcAE3d82D63e2b0094bc959752993D3D3743B5D08',
+  18,
+  'BTAF',
+  'Btaf Token',
+  '',
 )
 
 export const CAKE_TESTNET = new ERC20Token(
@@ -14,7 +22,7 @@ export const CAKE_TESTNET = new ERC20Token(
   '0xFa60D973F7642B748046464e165A65B7323b0DEE',
   18,
   'BTAF',
-  'BTAFSwap Token',
+  'Btaf Token',
   'https://pancakeswap.finance/',
 )
 
@@ -114,7 +122,7 @@ export const BUSD: Record<ChainId, ERC20Token> = {
 }
 
 export const BTAF = {
-  [ChainId.BSC]: CAKE_MAINNET,
+  [ChainId.BSC]: BTAF_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
 }
 

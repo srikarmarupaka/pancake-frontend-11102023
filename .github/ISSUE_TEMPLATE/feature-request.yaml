@@ -28,8 +28,8 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: How does this feature benefit BTAFSwap users and BTAF holders?
-      description: Explain how this feature will be beneficial for the BTAFSwap community and ecosystem.
+      label: How does this feature benefit Btaf users and BTAF holders?
+      description: Explain how this feature will be beneficial for the Btaf community and ecosystem.
     validations:
       required: true
   - type: textarea

@@ -9,7 +9,7 @@ const config = (t: ContextApi['t']) => {
         t(
           'Trades are settled in WBNB, which is a wrapped version of BNB used on BNB Smart Chain. That means that when you sell an item, WBNB is sent to your wallet instead of BNB.',
         ),
-        t('You can instantly swap your WBNB for BNB with no trading fees on BTAFSwap.'),
+        t('You can instantly swap your WBNB for BNB with no trading fees on Btaf.'),
       ],
     },
     {
@@ -26,7 +26,7 @@ const config = (t: ContextApi['t']) => {
       title: t('What are the fees?'),
       description: [
         t(
-          '100% of all platform fees taken by BTAFSwap from sales are used to buy back and BURN BTAF tokens in our weekly BTAF burns.',
+          '100% of all platform fees taken by Btaf from sales are used to buy back and BURN BTAF tokens in our weekly BTAF burns.',
         ),
         t(
           'Platform fees: 2% is subtracted from NFT sales on the market. Subject to change.Collection fees: Additional fees may be taken by collection creators, once those collections are live. These will not contribute to the BTAF burns.',
