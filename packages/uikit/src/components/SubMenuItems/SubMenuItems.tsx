@@ -39,7 +39,6 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
   useIsomorphicLayoutEffect(() => {
     layerController();
   }, [layerController]);
-  console.log({activeItem})
   return (
     <AtomBox display={{ xs: "none", sm: "block" }} asChild>
       <SubMenuItemWrapper $isMobileOnly={isMobileOnly} $isItems={activeItem === '/swap' || activeItem === '/liquidity'} {...props}>

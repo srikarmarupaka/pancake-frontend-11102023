@@ -12,7 +12,7 @@ export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean, $isItem
   justify-content: center;
   border: 1px solid #47308c;
   border-radius: 5px;
-  padding: 3px
+  padding: ${({$isItems}) => ($isItems ? "3px" : "0")}
 `;
 const StyledSubMenuItems = styled(Flex)`
   position: relative;
