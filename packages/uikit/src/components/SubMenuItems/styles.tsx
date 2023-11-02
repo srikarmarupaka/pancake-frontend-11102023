@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
 import { Flex, Box } from "../Box";
 
-export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean }>`
+export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean, $isItems: boolean }>`
+  display: none;
   ${({ theme }) => theme.mediaQueries.sm} {
-    ${({ $isMobileOnly }) => ($isMobileOnly ? "display:none" : "")};
+    ${({ $isMobileOnly, $isItems }) => ($isMobileOnly ? "display:none" : $isItems ? "display:block" : "display:none")};
   }
   overflow: hidden;
   display: flex;
