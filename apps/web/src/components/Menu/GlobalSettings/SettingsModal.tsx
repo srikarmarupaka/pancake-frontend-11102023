@@ -109,7 +109,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
   return (
     <Modal title={t('Settings')} headerBackground="input" onDismiss={onDismiss}>
       <ScrollableContainer>
-        {mode === SettingsMode.GLOBAL && (
+        {/* {mode === SettingsMode.GLOBAL && (
           <>
             <Flex pb="24px" flexDirection="column">
               <Text bold textTransform="uppercase" fontSize="18px" color="secondary" mb="24px">
@@ -137,8 +137,8 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
               </Flex>
             </Flex>
           </>
-        )}
-        {mode === SettingsMode.SWAP_LIQUIDITY && (
+        )} */}
+        {/* {mode === SettingsMode.SWAP_LIQUIDITY && ( */}
           <>
             <Flex pt="3px" flexDirection="column">
               <Text bold textTransform="uppercase" fontSize="18px" color="secondary" mb="24px">
@@ -263,7 +263,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
               />
             </Flex>
           </>
-        )}
+        {/* )} */}
       </ScrollableContainer>
     </Modal>
   )
