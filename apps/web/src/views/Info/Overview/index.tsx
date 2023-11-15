@@ -58,9 +58,13 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
 
   const { poolsData } = usePoolsData()
 
+  const filteredPoolsData = poolsData.filter((pool) => pool.token0.symbol === 'BTAF' || pool.token1.symbol === 'BTAF')
+  const filteredFormattedTokens = formattedTokens.filter((token) => token.symbol === 'BTAF' || token.symbol === 'BTAF')
+  const filteredTransactions = transactions.filter((txn) => txn.token0Symbol === 'BTAF' || txn.token1Symbol === 'BTAF')
+  
   const somePoolsAreLoading = useMemo(() => {
-    return poolsData.some((pool) => !pool?.token0Price)
-  }, [poolsData])
+    return filteredPoolsData.some((pool) => !pool?.token0Price)
+  }, [filteredPoolsData])
 
   return (
     <Page>
@@ -92,15 +96,15 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Tokens')}
       </Heading> */}
-      <TokenTable tokenDatas={formattedTokens} />
+      <TokenTable tokenDatas={filteredFormattedTokens} />
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Pools')}
       </Heading> */}
-      <PoolTable poolDatas={poolsData} loading={somePoolsAreLoading} />
+      <PoolTable poolDatas={filteredPoolsData} loading={somePoolsAreLoading} />
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Transactions')}
       </Heading> */}
-      <TransactionTable transactions={transactions} />
+      <TransactionTable transactions={filteredTransactions} />
     </Page>
   )
 }
