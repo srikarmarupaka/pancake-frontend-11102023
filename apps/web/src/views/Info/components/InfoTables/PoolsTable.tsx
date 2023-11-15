@@ -236,6 +236,11 @@ const PoolTable: React.FC<React.PropsWithChildren<PoolTableProps>> = ({ poolData
             }
             return null
           })}
+          {sortedPools.length === 0 ? (
+            <Flex justifyContent="center">
+              <Text>{t('No Pools')}</Text>
+            </Flex>
+          ) : undefined}
           {loading && <LoadingRow />}
           <PageButtons>
             <Flex>
