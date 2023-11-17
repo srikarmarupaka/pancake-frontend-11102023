@@ -54,6 +54,7 @@ interface SwapCommitButtonPropsType {
   allowedSlippage: number
   parsedIndepentFieldAmount: CurrencyAmount<Currency>
   onUserInput: (field: Field, typedValue: string) => void
+  onDismiss: () => void
 }
 
 export default function SwapCommitButton({
@@ -75,6 +76,7 @@ export default function SwapCommitButton({
   allowedSlippage,
   parsedIndepentFieldAmount,
   onUserInput,
+  onDismiss,
 }: SwapCommitButtonPropsType) {
   const { t } = useTranslation()
   const [singleHopOnly] = useUserSingleHopOnly()
@@ -138,6 +140,7 @@ export default function SwapCommitButton({
 
   const handleConfirmDismiss = useCallback(() => {
     setSwapState({ tradeToConfirm, attemptingTxn, swapErrorMessage, txHash })
+    onDismiss()
     // if there was a tx hash, we want to clear the input
     if (txHash) {
       onUserInput(Field.INPUT, '')
