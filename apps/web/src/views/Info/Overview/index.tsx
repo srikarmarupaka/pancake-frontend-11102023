@@ -4,9 +4,12 @@ import Page from 'components/Layout/Page'
 import { useMemo } from 'react'
 import {
   useAllTokenDataSWR,
+  usePoolsForTokenSWR,
   useProtocolChartDataSWR,
   useProtocolDataSWR,
   useProtocolTransactionsSWR,
+  useTokenChartDataSWR,
+  useTokenTransactionsSWR,
 } from 'state/info/hooks'
 import styled from 'styled-components'
 import BarChart from 'views/Info/components/InfoCharts/BarChart'
@@ -39,9 +42,10 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
     currentLanguage: { locale },
   } = useTranslation()
 
+  const address = '0xcae3d82d63e2b0094bc959752993d3d3743b5d08'
   const protocolData = useProtocolDataSWR()
-  const chartData = useProtocolChartDataSWR()
-  const transactions = useProtocolTransactionsSWR()
+  const transactions = useTokenTransactionsSWR(address)
+  const chartData = useTokenChartDataSWR(address)
 
   const currentDate = useMemo(
     () => new Date().toLocaleString(locale, { month: 'short', year: 'numeric', day: 'numeric' }),
@@ -58,16 +62,16 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
 
   const { poolsData } = usePoolsData()
 
-  // const filteredPoolsData = poolsData?.filter((pool) => pool.token0.symbol === 'BTAF' || pool.token1.symbol === 'BTAF')
-  // const filteredFormattedTokens = formattedTokens?.filter((token) => token.symbol === 'BTAF' || token.symbol === 'BTAF')
-  // const filteredTransactions = transactions?.filter((txn) => txn.token0Symbol === 'BTAF' || txn.token1Symbol === 'BTAF')
+  const filteredPoolsData = poolsData?.filter((pool) => pool.token0.symbol === 'BTAF' || pool.token1.symbol === 'BTAF')
+  const filteredFormattedTokens = formattedTokens?.filter((token) => token.symbol === 'BTAF' || token.symbol === 'BTAF')
+  const filteredTransactions = transactions?.filter((txn) => txn.token0Symbol === 'BTAF' || txn.token1Symbol === 'BTAF')
   
-  // const somePoolsAreLoading = useMemo(() => {
-  //   return filteredPoolsData.some((pool) => !pool?.token0Price)
-  // }, [filteredPoolsData])
   const somePoolsAreLoading = useMemo(() => {
-    return poolsData.some((pool) => !pool?.token0Price)
-  }, [poolsData])
+    return filteredPoolsData.some((pool) => !pool?.token0Price)
+  }, [filteredPoolsData])
+  // const somePoolsAreLoading = useMemo(() => {
+  //   return poolsData.some((pool) => !pool?.token0Price)
+  // }, [poolsData])
 
   return (
     <Page>
@@ -108,7 +112,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Transactions')}
       </Heading> */}
-      <TransactionTable transactions={transactions} />
+      <TransactionTable transactions={filteredTransactions} />
     </Page>
   )
 }
