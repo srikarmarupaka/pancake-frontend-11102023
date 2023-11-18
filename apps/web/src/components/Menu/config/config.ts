@@ -155,10 +155,10 @@ const config: (
       icon: MoreIcon,
       hideSubNav: true,
       items: [
-        {
-          label: t('Info'),
-          href: '/info',
-        },
+        // {
+        //   label: t('Info'),
+        //   href: '/info',
+        // },
         // {
         //   label: t('IFO'),
         //   href: '/ifo',

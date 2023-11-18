@@ -55,8 +55,8 @@ import { useDerivedSwapInfoWithStableSwap, useIsSmartRouterBetter, useTradeInfo 
 import { MMError } from '../MMLinkPools/apis'
 import { useDerivedSwapInfoWithMM } from '../MMLinkPools/hooks/useDerivedSwapInfoWithMM'
 
-export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void }> = ({
-  handleOutputSelect,
+export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void, onDismiss: () => void }> = ({
+  handleOutputSelect, onDismiss
 }) => {
   const { isAccessTokenSupported } = useContext(SwapFeaturesContext)
   const { t } = useTranslation()
@@ -486,6 +486,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
               recipient={recipient}
               allowedSlippage={allowedSlippage}
               onUserInput={onUserInput}
+              onDismiss={onDismiss}
             />
           ) : (
             <SmartSwapCommitButton
@@ -507,6 +508,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
               recipient={recipient}
               allowedSlippage={allowedSlippage}
               onUserInput={onUserInput}
+              onDismiss={onDismiss}
             />
           )}
         </Box>

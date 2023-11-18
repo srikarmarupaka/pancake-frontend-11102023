@@ -58,13 +58,16 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
 
   const { poolsData } = usePoolsData()
 
-  const filteredPoolsData = poolsData.filter((pool) => pool.token0.symbol === 'BTAF' || pool.token1.symbol === 'BTAF')
-  const filteredFormattedTokens = formattedTokens.filter((token) => token.symbol === 'BTAF' || token.symbol === 'BTAF')
-  const filteredTransactions = transactions.filter((txn) => txn.token0Symbol === 'BTAF' || txn.token1Symbol === 'BTAF')
+  // const filteredPoolsData = poolsData?.filter((pool) => pool.token0.symbol === 'BTAF' || pool.token1.symbol === 'BTAF')
+  // const filteredFormattedTokens = formattedTokens?.filter((token) => token.symbol === 'BTAF' || token.symbol === 'BTAF')
+  // const filteredTransactions = transactions?.filter((txn) => txn.token0Symbol === 'BTAF' || txn.token1Symbol === 'BTAF')
   
+  // const somePoolsAreLoading = useMemo(() => {
+  //   return filteredPoolsData.some((pool) => !pool?.token0Price)
+  // }, [filteredPoolsData])
   const somePoolsAreLoading = useMemo(() => {
-    return filteredPoolsData.some((pool) => !pool?.token0Price)
-  }, [filteredPoolsData])
+    return poolsData.some((pool) => !pool?.token0Price)
+  }, [poolsData])
 
   return (
     <Page>
@@ -96,15 +99,16 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Tokens')}
       </Heading> */}
-      <TokenTable tokenDatas={filteredFormattedTokens} />
+      <TokenTable tokenDatas={formattedTokens} />
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Pools')}
       </Heading> */}
-      <PoolTable poolDatas={filteredPoolsData} loading={somePoolsAreLoading} />
+      <PoolTable poolDatas={poolsData} loading={somePoolsAreLoading} />
+      {/* <PoolTable poolDatas={poolsData} loading={somePoolsAreLoading} /> */}
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Transactions')}
       </Heading> */}
-      <TransactionTable transactions={filteredTransactions} />
+      <TransactionTable transactions={transactions} />
     </Page>
   )
 }
