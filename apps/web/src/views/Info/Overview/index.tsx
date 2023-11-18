@@ -17,6 +17,7 @@ import LineChart from 'views/Info/components/InfoCharts/LineChart'
 import PoolTable from 'views/Info/components/InfoTables/PoolsTable'
 import TokenTable from 'views/Info/components/InfoTables/TokensTable'
 import TransactionTable from 'views/Info/components/InfoTables/TransactionsTable'
+import { BSC_TOKEN_WHITELIST } from 'config/constants/info'
 import HoverableChart from '../components/InfoCharts/HoverableChart'
 import { usePoolsData } from '../hooks/usePoolsData'
 
@@ -42,7 +43,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
     currentLanguage: { locale },
   } = useTranslation()
 
-  const address = '0xcae3d82d63e2b0094bc959752993d3d3743b5d08'
+  const address = BSC_TOKEN_WHITELIST[1];
   const protocolData = useProtocolDataSWR()
   const transactions = useTokenTransactionsSWR(address)
   const chartData = useTokenChartDataSWR(address)
