@@ -349,7 +349,9 @@ export default function SwapForm() {
             recipient={recipient}
             allowedSlippage={allowedSlippage}
             onUserInput={onUserInput}
-          />
+            onDismiss={() => {
+                // do nothing
+            }}/>
         </Box>
       </Wrapper>
       {!swapIsUnsupported ? (
