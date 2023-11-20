@@ -4,9 +4,12 @@ import Page from 'components/Layout/Page'
 import { useMemo } from 'react'
 import {
   useAllTokenDataSWR,
+  usePoolsForTokenSWR,
   useProtocolChartDataSWR,
   useProtocolDataSWR,
   useProtocolTransactionsSWR,
+  useTokenChartDataSWR,
+  useTokenTransactionsSWR,
 } from 'state/info/hooks'
 import styled from 'styled-components'
 import BarChart from 'views/Info/components/InfoCharts/BarChart'
@@ -14,6 +17,7 @@ import LineChart from 'views/Info/components/InfoCharts/LineChart'
 import PoolTable from 'views/Info/components/InfoTables/PoolsTable'
 import TokenTable from 'views/Info/components/InfoTables/TokensTable'
 import TransactionTable from 'views/Info/components/InfoTables/TransactionsTable'
+import { BSC_TOKEN_WHITELIST } from 'config/constants/info'
 import HoverableChart from '../components/InfoCharts/HoverableChart'
 import { usePoolsData } from '../hooks/usePoolsData'
 
@@ -39,9 +43,10 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
     currentLanguage: { locale },
   } = useTranslation()
 
+  const address = BSC_TOKEN_WHITELIST[1];
   const protocolData = useProtocolDataSWR()
-  const chartData = useProtocolChartDataSWR()
-  const transactions = useProtocolTransactionsSWR()
+  const transactions = useTokenTransactionsSWR(address)
+  const chartData = useTokenChartDataSWR(address)
 
   const currentDate = useMemo(
     () => new Date().toLocaleString(locale, { month: 'short', year: 'numeric', day: 'numeric' }),
@@ -65,6 +70,9 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   const somePoolsAreLoading = useMemo(() => {
     return filteredPoolsData.some((pool) => !pool?.token0Price)
   }, [filteredPoolsData])
+  // const somePoolsAreLoading = useMemo(() => {
+  //   return poolsData.some((pool) => !pool?.token0Price)
+  // }, [poolsData])
 
   return (
     <Page>
@@ -96,11 +104,12 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Tokens')}
       </Heading> */}
-      <TokenTable tokenDatas={filteredFormattedTokens} />
+      <TokenTable tokenDatas={formattedTokens} />
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Top Pools')}
       </Heading> */}
-      <PoolTable poolDatas={filteredPoolsData} loading={somePoolsAreLoading} />
+      <PoolTable poolDatas={poolsData} loading={somePoolsAreLoading} />
+      {/* <PoolTable poolDatas={poolsData} loading={somePoolsAreLoading} /> */}
       {/* <Heading scale="lg" mt="40px" mb="16px">
         {t('Transactions')}
       </Heading> */}

@@ -167,7 +167,7 @@ const TokenTable: React.FC<
       ? orderBy(
           tokenDatas,
           (tokenData) => tokenData[sortField as keyof TokenData],
-          sortDirection ? 'desc' : 'asc',
+          sortDirection ? 'asc' : 'desc',
         ).slice(maxItems * (page - 1), page * maxItems)
       : []
   }, [tokenDatas, maxItems, page, sortDirection, sortField])
