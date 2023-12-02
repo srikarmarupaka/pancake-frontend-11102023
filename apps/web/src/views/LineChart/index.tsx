@@ -6,6 +6,11 @@ import { useTokenChartDataSWR, useProtocolDataSWR } from 'state/info/hooks'
 import { BSC_TOKEN_WHITELIST } from 'config/constants/info'
 import LineChart from 'views/Info/components/InfoCharts/LineChart'
 import { useTranslation } from '@pancakeswap/localization'
+// import styled from 'styled-components'
+
+// const StyledCard = styled(Card)`
+//   height : 80vh;
+// `
 
 const LineChartComponent = () => {
   const address = BSC_TOKEN_WHITELIST[1]
