@@ -63,6 +63,14 @@ const config: (
           label: t('Liquidity'),
           href: '/liquidity',
         },
+        {
+          label: t('Line chart'),
+          href: '/line-chart',
+        },
+        {
+          label: t('Bar Chart'),
+          href: '/bar-chart',
+        },
         // {
         //   label: t('Perpetual'),
         //   href: getPerpetualUrl({
