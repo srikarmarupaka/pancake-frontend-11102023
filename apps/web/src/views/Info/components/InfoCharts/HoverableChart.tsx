@@ -30,10 +30,11 @@ const HoverableChart = ({
 }: HoverableChartProps) => {
   const [hover, setHover] = useState<number | undefined>()
   const [dateHover, setDateHover] = useState<string | undefined>()
-  const DEFAULT_TIME_WINDOW: Duration = { weeks: 3 }
+  const DEFAULT_TIME_WINDOW: Duration = { weeks: 1 }
   const address = BSC_TOKEN_WHITELIST[1]
   const priceData = useTokenPriceDataSWR(address, ONE_HOUR_SECONDS, DEFAULT_TIME_WINDOW)
   const tokenData = useTokenDataSWR(address)
+  console.log({tokenData})
 
   const adjustedPriceData = useMemo(() => {
     if (priceData && tokenData && priceData.length > 0) {
@@ -54,13 +55,13 @@ const HoverableChart = ({
   // Getting latest data to display on top of chart when not hovered
   useEffect(() => {
     setHover(null)
-  }, [protocolData])
+  }, [tokenData])
 
   useEffect(() => {
-    if (hover == null && protocolData) {
-      setHover(protocolData[valueProperty])
+    if (hover == null && tokenData) {
+      setHover(tokenData[valueProperty])
     }
-  }, [protocolData, hover, valueProperty])
+  }, [tokenData, hover, valueProperty])
 
   const formattedData = useMemo(() => {
     if (chartData) {
