@@ -50,7 +50,7 @@ const BarChartComponent = () => {
           chartData={chartData}
           protocolData={protocolData}
           currentDate={currentDate}
-          valueProperty="volumeUSD"
+          valueProperty="priceUSD"
           title={t('Price Chart')}
           ChartComponent={BarChart}
           variant="candlechart"
