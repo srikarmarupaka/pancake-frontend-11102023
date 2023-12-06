@@ -39,9 +39,9 @@ const BarChartComponent = () => {
     () => new Date().toLocaleString(locale, { month: 'short', year: 'numeric', day: 'numeric' }),
     [locale],
   )
-  useEffect(()=>{
+  useEffect(() => {
     setDateHover(currentDate)
-  },[currentDate])
+  }, [currentDate])
 
   return (
     <Page>
@@ -53,7 +53,7 @@ const BarChartComponent = () => {
           valueProperty="volumeUSD"
           title={t('Price Chart')}
           ChartComponent={BarChart}
-          variant='candlechart'
+          variant="candlechart"
         />
       </Card>
     </Page>
