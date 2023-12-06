@@ -64,11 +64,11 @@ const config: (
           href: '/liquidity',
         },
         {
-          label: t('Line chart'),
+          label: t('Liquidity Chart'),
           href: '/line-chart',
         },
         {
-          label: t('Bar Chart'),
+          label: t('Price Chart'),
           href: '/bar-chart',
         },
         // {

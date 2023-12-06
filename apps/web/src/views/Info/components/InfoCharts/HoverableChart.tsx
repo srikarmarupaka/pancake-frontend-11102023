@@ -3,19 +3,24 @@ import { fromUnixTime } from 'date-fns'
 import { useState, useMemo, memo, useEffect } from 'react'
 import { ChartEntry, ProtocolData } from 'state/info/types'
 import { formatAmount } from 'utils/formatInfoNumbers'
+import { ONE_HOUR_SECONDS, BSC_TOKEN_WHITELIST } from 'config/constants/info'
+import { useTokenPriceDataSWR, useTokenDataSWR } from 'state/info/hooks'
 import BarChart from './BarChart'
 import LineChart from './LineChart'
+import CandleChart from './CandleChart'
 
 interface HoverableChartProps {
+  variant?: string
   chartData: ChartEntry[]
   protocolData: ProtocolData
   currentDate: string
   valueProperty: string
   title: string
-  ChartComponent: typeof BarChart | typeof LineChart
+  ChartComponent: typeof BarChart | typeof LineChart | typeof CandleChart
 }
 
 const HoverableChart = ({
+  variant,
   chartData,
   protocolData,
   currentDate,
@@ -25,6 +30,26 @@ const HoverableChart = ({
 }: HoverableChartProps) => {
   const [hover, setHover] = useState<number | undefined>()
   const [dateHover, setDateHover] = useState<string | undefined>()
+  const DEFAULT_TIME_WINDOW: Duration = { weeks: 1 }
+  const address = BSC_TOKEN_WHITELIST[1]
+  const priceData = useTokenPriceDataSWR(address, ONE_HOUR_SECONDS, DEFAULT_TIME_WINDOW)
+  const tokenData = useTokenDataSWR(address)
+
+  const adjustedPriceData = useMemo(() => {
+    if (priceData && tokenData && priceData.length > 0) {
+      return [
+        ...priceData,
+        {
+          time: Date.now() / 1000,
+          open: priceData[priceData.length - 1].close,
+          close: tokenData?.priceUSD,
+          high: tokenData?.priceUSD,
+          low: priceData[priceData.length - 1].close,
+        },
+      ]
+    }
+    return undefined
+  }, [priceData, tokenData])
 
   // Getting latest data to display on top of chart when not hovered
   useEffect(() => {
@@ -62,8 +87,12 @@ const HoverableChart = ({
         <Skeleton width="128px" height="36px" />
       )}
       <Text>{dateHover ?? currentDate}</Text>
-      <Box height="250px">
-        <ChartComponent data={formattedData} setHoverValue={setHover} setHoverDate={setDateHover} />
+      <Box height={variant === "candlechart" ? "500px" : "250px"}>
+        {variant === "candlechart" ? (
+          <CandleChart data={adjustedPriceData} setValue={setHover} setLabel={setDateHover} />
+        ) : (
+          <ChartComponent data={formattedData} setHoverValue={setHover} setHoverDate={setDateHover} />
+        )}
       </Box>
     </Box>
   )
