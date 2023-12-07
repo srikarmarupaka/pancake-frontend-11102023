@@ -1,7 +1,7 @@
 import { Box, Text, Skeleton } from '@pancakeswap/uikit'
 import { fromUnixTime } from 'date-fns'
 import { useState, useMemo, memo, useEffect } from 'react'
-import { ChartEntry, ProtocolData } from 'state/info/types'
+import { ChartEntry, PriceChartEntry, ProtocolData } from 'state/info/types'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { ONE_HOUR_SECONDS, BSC_TOKEN_WHITELIST } from 'config/constants/info'
 import { useTokenPriceDataSWR, useTokenDataSWR } from 'state/info/hooks'
@@ -11,7 +11,7 @@ import CandleChart from './CandleChart'
 
 interface HoverableChartProps {
   variant?: string
-  chartData: ChartEntry[]
+  chartData: ChartEntry[] | PriceChartEntry[]
   protocolData: ProtocolData
   currentDate: string
   valueProperty: string
@@ -32,25 +32,25 @@ const HoverableChart = ({
   const [dateHover, setDateHover] = useState<string | undefined>()
   const DEFAULT_TIME_WINDOW: Duration = { weeks: 1 }
   const address = BSC_TOKEN_WHITELIST[1]
-  const priceData = useTokenPriceDataSWR(address, ONE_HOUR_SECONDS, DEFAULT_TIME_WINDOW)
+  // const priceData = useTokenPriceDataSWR(address, ONE_HOUR_SECONDS, DEFAULT_TIME_WINDOW)
   const tokenData = useTokenDataSWR(address)
-  console.log({tokenData})
+  // console.log({ chartData })
 
-  const adjustedPriceData = useMemo(() => {
-    if (priceData && tokenData && priceData.length > 0) {
-      return [
-        ...priceData,
-        {
-          time: Date.now() / 1000,
-          open: priceData[priceData.length - 1].close,
-          close: tokenData?.priceUSD,
-          high: tokenData?.priceUSD,
-          low: priceData[priceData.length - 1].close,
-        },
-      ]
-    }
-    return undefined
-  }, [priceData, tokenData])
+  // const adjustedPriceData = useMemo(() => {
+  //   if (priceData && tokenData && priceData.length > 0) {
+  //     return [
+  //       ...priceData,
+  //       {
+  //         time: Date.now() / 1000,
+  //         open: priceData[priceData.length - 1].close,
+  //         close: tokenData?.priceUSD,
+  //         high: tokenData?.priceUSD,
+  //         low: priceData[priceData.length - 1].close,
+  //       },
+  //     ]
+  //   }
+  //   return undefined
+  // }, [priceData, tokenData])
 
   // Getting latest data to display on top of chart when not hovered
   useEffect(() => {
@@ -65,6 +65,14 @@ const HoverableChart = ({
 
   const formattedData = useMemo(() => {
     if (chartData) {
+      if (variant === 'price') {
+        return chartData.map((day) => {
+          return {
+            time: fromUnixTime(day.time),
+            value: day.close,
+          }
+        })
+      }
       return chartData.map((day) => {
         return {
           time: fromUnixTime(day.date),
@@ -88,12 +96,13 @@ const HoverableChart = ({
         <Skeleton width="128px" height="36px" />
       )}
       <Text>{dateHover ?? currentDate}</Text>
-      <Box height={variant === "candlechart" ? "500px" : "250px"}>
-        {variant === "candlechart" ? (
+      <Box height='250px'>
+        {/* {variant === 'candlechart' ? (
           <CandleChart data={adjustedPriceData} setValue={setHover} setLabel={setDateHover} />
         ) : (
-          <ChartComponent data={formattedData} setHoverValue={setHover} setHoverDate={setDateHover} />
-        )}
+          <></>
+          )} */}
+        <ChartComponent data={formattedData} setHoverValue={setHover} setHoverDate={setDateHover} />
       </Box>
     </Box>
   )
