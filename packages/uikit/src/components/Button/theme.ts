@@ -23,6 +23,10 @@ export const styleVariants = {
     backgroundColor: "primary",
     color: "invertedContrast",
   },
+  [variants.SECONDRY]: {
+    backgroundColor: "secondary",
+    color: "invertedContrast",
+  },
   [variants.PRIMARYGRADIENT]: {
     background: vars.colors.primaryGradient,
     color: "white",
