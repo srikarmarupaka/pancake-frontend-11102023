@@ -1,3 +1,4 @@
+import { BackgroundImage } from '@pancakeswap/uikit';
 import { vars } from "@pancakeswap/ui/css/vars.css";
 import { scales, variants } from "./types";
 
@@ -21,6 +22,10 @@ export const styleVariants = {
   [variants.PRIMARY]: {
     backgroundColor: "primary",
     color: "invertedContrast",
+  },
+  [variants.PRIMARYGRADIENT]: {
+    background: vars.colors.primaryGradient,
+    color: "white",
   },
   [variants.SECONDARY]: {
     backgroundColor: "transparent",

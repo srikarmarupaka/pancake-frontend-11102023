@@ -45,7 +45,7 @@ const Button = <E extends ElementType = "button">(props: ButtonProps<E>): JSX.El
 Button.defaultProps = {
   isLoading: false,
   external: false,
-  variant: variants.PRIMARY,
+  variant: variants.PRIMARYGRADIENT,
   scale: scales.MD,
   disabled: false,
 };

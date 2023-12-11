@@ -22,7 +22,7 @@ import { SwapFeaturesContext } from './SwapFeaturesContext'
 
 const queryClient = new QueryClient()
 
-export default function Swap() {
+export default function Swap({transparent} : {transparent?: boolean}) {
   const { isDesktop } = useMatchBreakpoints()
   const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported } =
     useContext(SwapFeaturesContext)

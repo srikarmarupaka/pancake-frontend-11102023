@@ -63,14 +63,14 @@ const config: (
           label: t('Liquidity'),
           href: '/liquidity',
         },
-        {
-          label: t('Liquidity Chart'),
-          href: '/line-chart',
-        },
-        {
-          label: t('Price Chart'),
-          href: '/bar-chart',
-        },
+        // {
+        //   label: t('Liquidity Chart'),
+        //   href: '/line-chart',
+        // },
+        // {
+        //   label: t('Price Chart'),
+        //   href: '/bar-chart',
+        // },
         // {
         //   label: t('Perpetual'),
         //   href: getPerpetualUrl({

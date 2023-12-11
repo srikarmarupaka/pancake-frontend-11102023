@@ -42,7 +42,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
         <defs>
           <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor={theme.colors.inputSecondary} stopOpacity={0.5} />
-            <stop offset="100%" stopColor={theme.colors.secondary} stopOpacity={0} />
+            <stop offset="100%" stopColor={theme.colors.primary} stopOpacity={0} />
           </linearGradient>
         </defs>
         <XAxis
@@ -64,7 +64,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
           tick={{ dx: 10, fill: theme.colors.textSubtle }}
         />
         <Tooltip
-          cursor={{ stroke: theme.colors.secondary }}
+          cursor={{ stroke: theme.colors.primary }}
           contentStyle={{ display: 'none' }}
           formatter={(tooltipValue, name, props) => {
             setHoverValue(props.payload.value)
@@ -78,7 +78,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
             return null
           }}
         />
-        <Area dataKey="value" type="monotone" stroke={theme.colors.secondary} fill="url(#gradient)" strokeWidth={2} />
+        <Area dataKey="value" type="monotone" stroke={theme.colors.primary} fill="url(#gradient)" strokeWidth={2} />
       </AreaChart>
     </ResponsiveContainer>
   )

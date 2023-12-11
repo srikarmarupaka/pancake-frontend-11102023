@@ -2,7 +2,9 @@ export const baseColors = {
   white: 'white',
   failure: '#ED4B9E',
   failure33: '#ED4B9E33',
-  primary: '#3b0764',
+  primary: '#FC4044',
+  primaryGradient: 'linear-gradient(to right, #FC4044, #8B10E4)',
+  transparent: 'transparent',
   primary5F: '#3b07645F',
   primary0f: '#1FC7D40f',
   primary3D: '#1FC7D43D',
@@ -26,9 +28,12 @@ export const additionalColors = {
 export const lightColors = {
   ...baseColors,
   ...additionalColors,
-  secondary: '#3b0764',
-  secondary80: '#7645D980',
+  secondary: '#AF01F8',
+  secondary80: '#AF01F880',
   background: '#FFF',
+  // teritiary: '#8B10E4',
+  // pink:'#FB87C0',
+  // button:'#8B10E4',
   backgroundDisabled: '#F1F1F1',
   backgroundAlt: '#FFFFFF',
   backgroundAlt2: 'rgba(255, 255, 255, 0.7)',
@@ -52,7 +57,7 @@ export const lightColors = {
   gradientViolet: 'linear-gradient(180deg, #E2C9FB 0%, #CDB8FA 100%)',
   gradientVioletAlt: 'linear-gradient(180deg, #CBD7EF 0%, #9A9FD0 100%)',
   gradientGold: 'linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)',
-  gradientBold: 'linear-gradient(#53DEE9, #7645D9)',
+  gradientBold: 'linear-gradient(#FC4044, #AF01F8)',
 }
 
 export const darkColors = {

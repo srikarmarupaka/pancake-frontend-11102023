@@ -30,7 +30,6 @@ const HoverableChart = ({
 }: HoverableChartProps) => {
   const [hover, setHover] = useState<number | undefined>()
   const [dateHover, setDateHover] = useState<string | undefined>()
-  const DEFAULT_TIME_WINDOW: Duration = { weeks: 1 }
   const address = BSC_TOKEN_WHITELIST[1]
   // const priceData = useTokenPriceDataSWR(address, ONE_HOUR_SECONDS, DEFAULT_TIME_WINDOW)
   const tokenData = useTokenDataSWR(address)
