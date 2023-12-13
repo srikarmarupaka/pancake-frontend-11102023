@@ -108,7 +108,7 @@ const SlippageSetting = () => {
             setSlippageInput('')
             setUserSlippageTolerance(10)
           }}
-          variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
+          variant={userSlippageTolerance === 10 ? 'primaryGradient' : 'tertiary'}
         >
           0.1%
         </Button>
@@ -120,7 +120,7 @@ const SlippageSetting = () => {
             setSlippageInput('')
             setUserSlippageTolerance(50)
           }}
-          variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
+          variant={userSlippageTolerance === 50 ? 'primaryGradient' : 'tertiary'}
         >
           0.5%
         </Button>
@@ -132,7 +132,7 @@ const SlippageSetting = () => {
             setSlippageInput('')
             setUserSlippageTolerance(100)
           }}
-          variant={userSlippageTolerance === 100 ? 'primary' : 'tertiary'}
+          variant={userSlippageTolerance === 100 ? 'primaryGradient' : 'tertiary'}
         >
           1.0%
         </Button>
@@ -156,7 +156,7 @@ const SlippageSetting = () => {
               isSuccess={![10, 50, 100].includes(userSlippageTolerance)}
             />
           </Box>
-          <Text color="primary" bold ml="2px">
+          <Text color="primaryGradient" bold ml="2px">
             %
           </Text>
         </Flex>

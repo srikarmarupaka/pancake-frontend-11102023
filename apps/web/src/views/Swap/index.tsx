@@ -24,7 +24,7 @@ const queryClient = new QueryClient()
 
 export default function Swap({transparent} : {transparent?: boolean}) {
   const { isDesktop } = useMatchBreakpoints()
-  const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported } =
+  const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported, setTransparent } =
     useContext(SwapFeaturesContext)
   const [isSwapHotTokenDisplay, setIsSwapHotTokenDisplay] = useSwapHotTokenDisplay()
   const { t } = useTranslation()
@@ -113,11 +113,11 @@ export default function Swap({transparent} : {transparent?: boolean}) {
           </Modal>
         </ModalV2>
         <Flex flexDirection="column">
-          <StyledSwapContainer $isChartExpanded={isChartExpanded}>
+          <StyledSwapContainer $isChartExpanded={isChartExpanded} transparent={transparent}>
             <StyledInputCurrencyWrapper mt={isChartExpanded ? '24px' : '0'}>
               <AppBody>
                 <QueryClientProvider client={queryClient}>
-                  <SmartSwapForm handleOutputSelect={handleOutputSelect} onDismiss={() => setIsSwapHotTokenDisplay(false)} />
+                  <SmartSwapForm handleOutputSelect={handleOutputSelect} onDismiss={() => setIsSwapHotTokenDisplay(false)} transparent />
                 </QueryClientProvider>
               </AppBody>
             </StyledInputCurrencyWrapper>

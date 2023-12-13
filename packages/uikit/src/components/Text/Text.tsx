@@ -30,7 +30,7 @@ const Text = styled.div<TextProps>`
 `;
 
 Text.defaultProps = {
-  color: "text",
+  color: "primaryGradient",
   small: false,
   fontSize: "16px",
   ellipsis: false,

@@ -55,8 +55,8 @@ import { useDerivedSwapInfoWithStableSwap, useIsSmartRouterBetter, useTradeInfo 
 import { MMError } from '../MMLinkPools/apis'
 import { useDerivedSwapInfoWithMM } from '../MMLinkPools/hooks/useDerivedSwapInfoWithMM'
 
-export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void, onDismiss: () => void }> = ({
-  handleOutputSelect, onDismiss
+export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void, onDismiss: () => void, transparent: boolean }> = ({
+  handleOutputSelect, onDismiss, transparent
 }) => {
   const { isAccessTokenSupported } = useContext(SwapFeaturesContext)
   const { t } = useTranslation()
@@ -308,7 +308,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             </Box>
           )} */}
 
-          <AutoColumn justify="space-between">
+          {!transparent && <AutoColumn justify="space-between">
             <AutoRow
               justify={isExpertMode ? 'space-between' : 'center'}
               // style={{ padding: '0 1rem', position: 'absolute', zIndex: 9, transform: 'translate(-5%, -50%)' }}
@@ -327,7 +327,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
                 </Button>
               ) : null}
             </AutoRow>
-          </AutoColumn>
+          </AutoColumn>}
           <CurrencyInputPanel
             value={formattedAmounts[Field.OUTPUT]}
             onUserInput={handleTypeOutput}

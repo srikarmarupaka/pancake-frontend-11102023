@@ -8,6 +8,8 @@ export const SwapFeaturesContext = createContext<{
   isChartSupported: boolean
   isStableSupported: boolean
   isAccessTokenSupported: boolean
+  transparent: boolean,
+  setTransparent: React.Dispatch<React.SetStateAction<boolean>>
   isChartExpanded: boolean
   isChartDisplayed: boolean
   setIsChartExpanded: React.Dispatch<React.SetStateAction<boolean>>
@@ -16,6 +18,8 @@ export const SwapFeaturesContext = createContext<{
   isChartSupported: false,
   isStableSupported: false,
   isAccessTokenSupported: false,
+  transparent: false,
+  setTransparent: null,
   isChartExpanded: false,
   isChartDisplayed: false,
   setIsChartExpanded: null,
@@ -32,6 +36,7 @@ export const SwapFeaturesProvider: React.FC<React.PropsWithChildren> = ({ childr
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
   const [isChartExpanded, setIsChartExpanded] = useState(false)
+  const [transparent, setTransparent] = useState(false)
 
   const isChartSupported = useMemo(
     () =>
@@ -53,6 +58,8 @@ export const SwapFeaturesProvider: React.FC<React.PropsWithChildren> = ({ childr
       isChartSupported,
       isStableSupported,
       isAccessTokenSupported,
+      transparent,
+      setTransparent,
       isChartDisplayed,
       setIsChartDisplayed,
       isChartExpanded,

@@ -364,7 +364,7 @@ export default function CurrencyInputPanel({
                       setCurrentClickedPercent('MAX')
                     }}
                     scale="xs"
-                    variant={isAtPercentMax ? 'primary' : 'secondary'}
+                    variant={isAtPercentMax ? 'primaryGradient' : 'secondary'}
                     style={{ textTransform: 'uppercase' }}
                   >
                     {t('Max')}
