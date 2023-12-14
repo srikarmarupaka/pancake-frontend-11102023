@@ -1,7 +1,7 @@
 import { Box, Flex } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 
-export const StyledSwapContainer = styled(Flex)<{ $isChartExpanded: boolean, $transparent: boolean }>`
+export const StyledSwapContainer = styled(Flex)<{ $isChartExpanded: boolean; $transparent: boolean }>`
   flex-shrink: 0;
   height: fit-content;
   padding: 0 24px;
@@ -18,7 +18,11 @@ export const StyledSwapContainer = styled(Flex)<{ $isChartExpanded: boolean, $tr
 
 export const StyledInputCurrencyWrapper = styled(Box)<{$transparent: boolean}>`
   min-width: 370px;
-  background: ${({$transparent}) => ($transparent ? 'transparent' : 'var(--bg-container)')};
+  // background: ${({$transparent}) => ($transparent ? 'rgba(0,0,0,0.2)' : 'var(--bg-container)')};
   width: 90%;
-  max-width: 500px
+  max-width: 500px;
+`
+export const StyledSmartSwapWrapper = styled(Box)<{ $transparent: boolean }>`
+  background: ${({ $transparent }) => ($transparent ? 'rgba(0,0,0,0.2)' : 'var(--bg-container)')};
+  width: 100%;
 `

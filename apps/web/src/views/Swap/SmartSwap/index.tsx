@@ -54,6 +54,7 @@ import SmartSwapCommitButton from './components/SmartSwapCommitButton'
 import { useDerivedSwapInfoWithStableSwap, useIsSmartRouterBetter, useTradeInfo } from './hooks'
 import { MMError } from '../MMLinkPools/apis'
 import { useDerivedSwapInfoWithMM } from '../MMLinkPools/hooks/useDerivedSwapInfoWithMM'
+import { StyledSmartSwapWrapper } from '../styles'
 
 export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void, onDismiss: () => void, transparent: boolean }> = ({
   handleOutputSelect, onDismiss, transparent
@@ -262,7 +263,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
   const [onPresentSettingsModal] = useModal(<SettingsModal mode={SettingsMode.SWAP_LIQUIDITY} />)
 
   return (
-    <>
+    <StyledSmartSwapWrapper $transparent={transparent}>
       <MMAndAMMDealDisplay
         independentField={independentField}
         isMMBetter={isMMBetter}
@@ -545,6 +546,6 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
       ) : (
         <UnsupportedCurrencyFooter currencies={[currencies.INPUT, currencies.OUTPUT]} />
       )} */}
-    </>
+    </StyledSmartSwapWrapper>
   )
 }

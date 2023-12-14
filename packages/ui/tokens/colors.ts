@@ -3,7 +3,6 @@ export const baseColors = {
   failure: '#ED4B9E',
   failure33: '#ED4B9E33',
   primary: '#FC4044',
-  // primary: 'linear-gradient(to right, #FC4044, #8B10E4)',
   primaryGradient: 'linear-gradient(to right, #FC4044, #8B10E4)',
   pink:'#FB87C0',
   transparent: 'transparent',

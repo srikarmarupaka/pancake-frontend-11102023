@@ -49,12 +49,12 @@ export const StyledCard = styled.div<StyledCardProps>`
   ${space}
 `;
 
-export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>`
+export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean; transparent?: boolean }>`
   width: 100%;
   height: 100%;
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
   overflow-y: scroll;
-  background: ${({ theme, background }) => background ?? theme.card.background};
+  background: ${({ theme, background, transparent }) => transparent ? 'rgba(0,0,0,0.2)' : background ?? theme.card.background};
   border-radius: ${({ theme }) => theme.radii.card};
 `;
 
