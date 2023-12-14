@@ -117,7 +117,7 @@ export default function Swap({transparent} : {transparent?: boolean}) {
             <StyledInputCurrencyWrapper mt={isChartExpanded ? '24px' : '0'}>
               <AppBody>
                 <QueryClientProvider client={queryClient}>
-                  <SmartSwapForm handleOutputSelect={handleOutputSelect} onDismiss={() => setIsSwapHotTokenDisplay(false)} transparent />
+                  <SmartSwapForm handleOutputSelect={handleOutputSelect} onDismiss={() => setIsSwapHotTokenDisplay(false)} transparent={transparent} />
                 </QueryClientProvider>
               </AppBody>
             </StyledInputCurrencyWrapper>
