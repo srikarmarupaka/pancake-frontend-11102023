@@ -5,7 +5,7 @@ import { SwapFeaturesProvider } from '../views/Swap/SwapFeaturesContext'
 const SwapPage = () => {
   return (
     <SwapFeaturesProvider>
-      <Swap />
+      <Swap transparent={false} />
     </SwapFeaturesProvider>
   )
 }
