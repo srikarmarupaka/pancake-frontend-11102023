@@ -114,9 +114,9 @@ export default function Swap({transparent} : {transparent?: boolean}) {
           </Modal>
         </ModalV2>
         <Flex flexDirection="column">
-          <StyledSwapContainer $isChartExpanded={isChartExpanded} transparent={transparent}>
-            <StyledInputCurrencyWrapper mt={isChartExpanded ? '24px' : '0'}>
-              <AppBody>
+          <StyledSwapContainer $isChartExpanded={isChartExpanded} $transparent={transparent}>
+            <StyledInputCurrencyWrapper mt={isChartExpanded ? '24px' : '0'} $transparent={transparent}>
+              <AppBody transparent={transparent}>
                 <QueryClientProvider client={queryClient}>
                   <SmartSwapForm handleOutputSelect={handleOutputSelect} onDismiss={() => setIsSwapHotTokenDisplay(false)} transparent={transparent} />
                 </QueryClientProvider>
