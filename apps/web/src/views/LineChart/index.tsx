@@ -58,7 +58,9 @@ const LineChartComponent = () => {
             outputCurrencyId={outputCurrencyId}
             outputCurrency={currencies[Field.OUTPUT]}
             isChartExpanded
-            setIsChartExpanded={() => {}}
+            setIsChartExpanded={() => {
+              return true;
+            }}
             currentSwapPrice={singleTokenPrice}
             isChartDisplayed
         />
