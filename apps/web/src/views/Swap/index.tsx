@@ -34,6 +34,7 @@ export default function Swap({transparent} : {transparent?: boolean}) {
     [Field.INPUT]: { currencyId: inputCurrencyId },
     [Field.OUTPUT]: { currencyId: outputCurrencyId },
   } = useSwapState()
+  console.log('inputCurrencyId', inputCurrencyId, outputCurrencyId)
   const inputCurrency = useCurrency(inputCurrencyId)
   const outputCurrency = useCurrency(outputCurrencyId)
 
