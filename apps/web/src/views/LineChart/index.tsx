@@ -50,7 +50,7 @@ const LineChartComponent = () => {
   )
   return (
     // <Page>
-      <Card>
+      // <Card>
         <PriceChartContainer
             inputCurrencyId={inputCurrencyId}
             inputCurrency={currencies[Field.INPUT]}
@@ -63,7 +63,7 @@ const LineChartComponent = () => {
             currentSwapPrice={singleTokenPrice}
             isChartDisplayed
         />
-      </Card>
+      // </Card>
     // </Page>
   )
 }

@@ -62,7 +62,7 @@ const SwapLineChart = ({
 
     const chart = createChart(chartRef.current, {
       layout: {
-        background: { color: 'transparent' },
+        background: { color: 'white' },
         textColor: isDark ? darkColors.text : lightColors.text,
       },
       handleScale: false,

@@ -39,13 +39,13 @@ const BasicChart = ({
     t,
     currentLanguage: { locale },
   } = useTranslation()
-  const currentDate = new Date().toLocaleString(locale, {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+  // const currentDate = new Date().toLocaleString(locale, {
+  //   year: 'numeric',
+  //   month: 'short',
+  //   day: '2-digit',
+  //   hour: '2-digit',
+  //   minute: '2-digit',
+  // })
 
   // Sometimes we might receive array full of zeros for obscure tokens while trying to derive data
   // In that case chart is not useful to users
