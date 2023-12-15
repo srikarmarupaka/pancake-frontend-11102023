@@ -49,12 +49,12 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
+  background-color: ${({ theme }) => theme.colors.white};
   z-index: 1;
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.input};
+  // background-color: ${({ theme }) => theme.colors.input};
   // box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&

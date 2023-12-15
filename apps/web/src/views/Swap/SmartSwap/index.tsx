@@ -439,7 +439,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
         <UnsupportedCurrencyFooter currencies={[currencies.INPUT, currencies.OUTPUT]} />
       )}
 
-        <Box mt="0.25rem">
+        <Box mt="1rem">
           {!tradeWithStableSwap &&
           !v2Trade &&
           mmOrderBookTrade?.inputError &&
