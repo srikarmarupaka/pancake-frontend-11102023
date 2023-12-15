@@ -14,6 +14,7 @@ export const switchButtonClass = style([
 ]);
 
 export const iconDownClass = style({
+  display: "none",
   selectors: {
     [`${switchButtonClass}:hover &`]: {
       display: "none",
@@ -23,7 +24,7 @@ export const iconDownClass = style({
 });
 
 export const iconUpDownClass = style({
-  display: "none",
+  display: "block",
   selectors: {
     [`${switchButtonClass}:hover &`]: {
       display: "block",
@@ -140,7 +141,7 @@ export const pageVariants = recipe({
       alignItems: "center",
       width: "100%",
       height: "100vh",
-      background: "background",
+      background: "transperent",
       padding: "16px",
       paddingBottom: "0",
     }),

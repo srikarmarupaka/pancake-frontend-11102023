@@ -312,7 +312,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
           { !transparent && <AutoColumn justify="space-between">
             <AutoRow
               justify={isExpertMode ? 'space-between' : 'center'}
-              // style={{ padding: '0 1rem', position: 'absolute', zIndex: 9, transform: 'translate(-5%, -50%)' }}
+              style={{ position: 'absolute', zIndex: 9, transform: 'translate(-5%, -50%)' }}
             >
               <SwapUI.SwitchButton
                 onClick={() => {

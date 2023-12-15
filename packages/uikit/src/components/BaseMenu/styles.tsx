@@ -26,8 +26,8 @@ export const SubMenuItem = styled.button`
   outline: 0;
   cursor: pointer;
   background: transparent;
-  padding: 8px 16px;
-  color: ${({ theme }) => theme.colors.text};
+  padding: 8px 16px; 
+  color: ${({ theme }) => theme.colors.white};
   width: 100%;
   font-size: 16px;
   text-align: left;

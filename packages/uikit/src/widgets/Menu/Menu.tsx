@@ -30,8 +30,8 @@ const StyledNav = styled.nav`
   align-items: center;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  background-color: ${({ theme }) => '#C5C5C5'};
+  // border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
   transform: translate3d(0, 0, 0);
 
   padding-left: 16px;
@@ -59,7 +59,7 @@ const BodyWrapper = styled(Box)`
   position: relative;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    background-color: #f1f1f1;
+    background-color: #A2A2A2;
   }
   display: flex;
   max-width: 100vw;
@@ -150,7 +150,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
             <StyledNav>
               <Flex alignItems="center">
                 <Logo href={homeLink?.href ?? "/"} />
-                <AtomBox display={{ xs: "none", md: "block" }}>
+                <AtomBox display={{ xs: "none", md: "block" }} color='white'>
                   <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
                 </AtomBox>
               </Flex>
@@ -164,7 +164,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                     langs={langs}
                     setLang={setLang}
                     buttonScale="xs"
-                    color="textSubtle"
+                    color="white"
                     hideLanguage
                   />
                 </Box>
