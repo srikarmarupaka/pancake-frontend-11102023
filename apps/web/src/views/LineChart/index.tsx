@@ -48,7 +48,6 @@ const LineChartComponent = () => {
       outputCurrencyId,
       outputCurrency,
   )
-  console.log('singleTokenPrice', singleTokenPrice)
   return (
     <Page>
       <Card>

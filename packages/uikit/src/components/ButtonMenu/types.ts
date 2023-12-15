@@ -7,7 +7,7 @@ export interface ButtonMenuItemProps extends BaseButtonProps {
 }
 
 export interface ButtonMenuProps extends SpaceProps {
-  variant?: typeof variants.PRIMARY | typeof variants.SUBTLE | typeof variants.LIGHT | typeof variants.SECONDARY | typeof variants.PRIMARYGRADIENT;
+  variant?: typeof variants.PRIMARY | typeof variants.SUBTLE | typeof variants.LIGHT | typeof variants.SECONDARY | typeof variants.PRIMARYGRADIENT | typeof variants.PINK;
   activeIndex?: number;
   onItemClick?: (index: number) => void;
   scale?: Scale;

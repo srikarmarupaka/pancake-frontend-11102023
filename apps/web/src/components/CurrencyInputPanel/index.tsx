@@ -98,6 +98,7 @@ interface CurrencyInputPanelProps {
   disabled?: boolean
   error?: boolean
   showUSDPrice?: boolean
+  transparent?: boolean
   tokensToShow?: Token[]
 }
 export default function CurrencyInputPanel({
@@ -127,6 +128,7 @@ export default function CurrencyInputPanel({
   error,
   showUSDPrice,
   tokensToShow,
+  transparent,
 }: CurrencyInputPanelProps) {
   const { address: account } = useAccount()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)
