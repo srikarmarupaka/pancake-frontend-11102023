@@ -18,8 +18,8 @@ export type SwapLineChartNewProps = {
 
 const getChartColors = ({ isChangePositive }) => {
   return isChangePositive
-    ? { gradient1: '#F888C0', gradient2: '#fff', stroke: '#FB8EC4' }
-    : { gradient1: '#F888C0', gradient2: '#fff', stroke: '#FB8EC4 ' }
+    ? { gradient1: '#F888C0', gradient2: 'rgba(0,0,0,0)', stroke: '#FB8EC4' }
+    : { gradient1: '#F888C0', gradient2: 'rgba(0,0,0,0)', stroke: '#FB8EC4 ' }
 }
 
 const dateFormattingByTimewindow: Record<PairDataTimeWindowEnum, string> = {
@@ -89,7 +89,9 @@ const SwapLineChart = ({
           visible: false,
         },
         vertLines: {
-          visible: false,
+          visible: true,
+          color: 'pink',
+          style: 3,
         },
       },
       crosshair: {
@@ -108,10 +110,10 @@ const SwapLineChart = ({
       },
     })
     const newSeries = chart.addAreaSeries({
-      lineWidth: 2,
+      lineWidth: 4,
       lineColor: colors.gradient1,
-      topColor: colors.gradient1,
-      bottomColor: isDark ? darkColors.backgroundDisabled : lightColors.backgroundDisabled,
+      topColor: colors.gradient2,
+      bottomColor: colors.gradient2,
     })
     setChart(chart)
     newSeries.setData(transformedData)

@@ -71,7 +71,7 @@ const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
           isActive: activeIndex === index,
           onClick: onItemClick ? () => onItemClick(index) : undefined,
           scale,
-          variant,
+          variant: activeIndex === index ? variant : variants.LIGHT,
           disabled,
         });
       })}

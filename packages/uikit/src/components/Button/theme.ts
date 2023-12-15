@@ -54,6 +54,10 @@ export const styleVariants = {
     backgroundColor: "failure",
     color: "white",
   },
+  [variants.PINK]: {
+    backgroundColor: "pink",
+    color: "white",
+  },
   [variants.SUCCESS]: {
     backgroundColor: "success",
     color: "white",

@@ -49,12 +49,12 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
+  background-color: ${({ theme }) => theme.colors.white};
   z-index: 1;
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.input};
+  // background-color: ${({ theme }) => theme.colors.input};
   // box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
@@ -98,6 +98,7 @@ interface CurrencyInputPanelProps {
   disabled?: boolean
   error?: boolean
   showUSDPrice?: boolean
+  transparent?: boolean
   tokensToShow?: Token[]
 }
 export default function CurrencyInputPanel({
@@ -127,6 +128,7 @@ export default function CurrencyInputPanel({
   error,
   showUSDPrice,
   tokensToShow,
+  transparent,
 }: CurrencyInputPanelProps) {
   const { address: account } = useAccount()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)
