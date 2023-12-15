@@ -18,12 +18,12 @@ export type SwapLineChartNewProps = {
 
 const getChartColors = ({ isChangePositive }) => {
   return isChangePositive
-    ? { gradient1: '#F888C0', gradient2: 'rgba(0,0,0,0)', stroke: '#FB8EC4' }
-    : { gradient1: '#F888C0', gradient2: 'rgba(0,0,0,0)', stroke: '#FB8EC4 ' }
+    ? { gradient1: '#F888C0', gradient2: '#FFF', stroke: '#FB8EC4' }
+    : { gradient1: '#F888C0', gradient2: '#FFF', stroke: '#FB8EC4 ' }
 }
 
 const dateFormattingByTimewindow: Record<PairDataTimeWindowEnum, string> = {
-  [PairDataTimeWindowEnum.DAY]: 'h:mm a',
+  [PairDataTimeWindowEnum.DAY]: 'h a',
   [PairDataTimeWindowEnum.WEEK]: 'MMM dd',
   [PairDataTimeWindowEnum.MONTH]: 'MMM dd',
   [PairDataTimeWindowEnum.YEAR]: 'MMM dd',
@@ -112,7 +112,7 @@ const SwapLineChart = ({
     const newSeries = chart.addAreaSeries({
       lineWidth: 4,
       lineColor: colors.gradient1,
-      topColor: colors.gradient2,
+      topColor: colors.gradient1,
       bottomColor: colors.gradient2,
     })
     setChart(chart)
@@ -128,7 +128,7 @@ const SwapLineChart = ({
           month: 'short',
           day: 'numeric',
           hour: 'numeric',
-          minute: '2-digit',
+          // minute: '2-digit',
           timeZone: 'UTC',
         })} (UTC)`
         const parsed = param.seriesPrices.get(newSeries) as number | undefined

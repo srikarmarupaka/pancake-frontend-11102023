@@ -12,13 +12,13 @@ const getBackgroundColor = ({ theme, variant }: StyledButtonMenuProps) => {
   return theme.colors[variant === variants.SUBTLE ? "input" : "background"];
 };
 
-const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
-  return theme.colors[variant === variants.SUBTLE ? "inputSecondary" : "disabled"];
-};
+// const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
+//   return theme.colors[variant === variants.SUBTLE ? "inputSecondary" : "disabled"];
+// };
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
   background: ${getBackgroundColor};
-  width:
+  // width:
   border-radius: 8px;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};

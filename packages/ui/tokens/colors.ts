@@ -6,6 +6,7 @@ export const baseColors = {
   primaryGradient: 'linear-gradient(to right, #FC4044, #8B10E4)',
   pink:'#FB87C0',
   transparent: 'transparent',
+  transperent: 'rgba(0,0,0,0)',
   primary5F: '#3b07645F',
   primary0f: '#1FC7D40f',
   primary3D: '#1FC7D43D',

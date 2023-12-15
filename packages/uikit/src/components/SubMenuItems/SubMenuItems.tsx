@@ -68,7 +68,7 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
           justifyContent={[isMobileOnly ? "flex-end" : "start", null, "center"]}
           // pl={["12px", null, "0px"]}
           onScroll={debounce(layerController, 100)}
-          backgroundColor={{md : "#f1f1f1"}}
+          backgroundColor="rgba(0,0,0,0)"
           ref={scrollLayerRef}
         >
           {items.map(({ label, href, icon, itemProps, type, disabled }) => {

@@ -82,17 +82,17 @@ const BasicChart = ({
             inputSymbol={inputCurrency?.symbol}
             outputSymbol={outputCurrency?.symbol}
           >
-            <Text color={isChangePositive ? 'pink' : 'failure'} fontSize="20px" ml="4px" bold>
-              {`(${isChangePositive ? '+' : '-'}
+            <Text color={isChangePositive ? 'white' : 'failure'} style={{backgroundColor: '#FB8Ec4', borderRadius: 4 }} p={1} fontSize="20px" ml="4px" bold>
+              {`${isChangePositive ? '+' : '-'}
                
-              ${changePercentage}%)`}
+              ${changePercentage}%`}
             </Text>
           </PairPriceDisplay>
           {/* <Text small color="secondary">
             {hoverDate || currentDate}
           </Text> */}
         </Flex>
-        <Box>
+        <Box backgroundColor='#BDC2C4' p={2} style={{borderRadius: '30px'}}>
           <ButtonMenu activeIndex={timeWindow} onItemClick={setTimeWindow} scale="sm" variant='pink'>
             <ButtonMenuItem>{t('24H')}</ButtonMenuItem>
             <ButtonMenuItem>{t('1W')}</ButtonMenuItem>

@@ -49,7 +49,7 @@ const LineChartComponent = () => {
       outputCurrency,
   )
   return (
-    <Page>
+    // <Page>
       <Card>
         <PriceChartContainer
             inputCurrencyId={inputCurrencyId}
@@ -64,7 +64,7 @@ const LineChartComponent = () => {
             isChartDisplayed
         />
       </Card>
-    </Page>
+    // </Page>
   )
 }
 

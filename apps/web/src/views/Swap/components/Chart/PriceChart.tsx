@@ -45,13 +45,13 @@ const PriceChart = ({
             <SyncAltIcon ml="6px" color="success" />
           </IconButton>
         </Flex>
-        {!isMobile && (
+        {/* {!isMobile && (
           <Flex>
             <IconButton variant="text" onClick={toggleExpanded}>
               {isChartExpanded ? <ShrinkIcon color="text" /> : <ExpandIcon color="text" />}
             </IconButton>
           </Flex>
-        )}
+        )} */}
       </Flex>
       {chartView === ChartViewMode.BASIC && (
         <BasicChart
