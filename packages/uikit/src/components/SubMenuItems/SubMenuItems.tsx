@@ -89,7 +89,6 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
               label && (
                 <StyledSubMenuItemWrapper key={label} $isActive={isActive} style={{
                   ...(isActive ? {
-                    backgroundColor: "#AF01F8",
                     color: "#FFF",
                     borderRadius: "5px",
                     textAlign: 'center',

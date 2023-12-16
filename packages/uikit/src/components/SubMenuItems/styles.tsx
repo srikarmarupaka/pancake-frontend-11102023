@@ -10,7 +10,7 @@ export const SubMenuItemWrapper = styled(Flex)<{ $isMobileOnly: boolean, $isItem
   display: flex;
   position: relative;
   justify-content: center;
-  border: 1px solid #AF01F8;
+  border: 2px solid ${({ theme }) => `${theme.colors.primary}`};
   border-radius: 5px;
   padding: ${({$isItems}) => ($isItems ? "3px" : "0")}
 `;
@@ -80,6 +80,7 @@ export const StyledSubMenuItemWrapper = styled(Box)<{$isActive : boolean}>`
   display: inline-block;
   vertical-align: top;
   // scroll-snap-align: start;
+  ${({ $isActive,theme }) => ($isActive ? `background: ${theme.colors.submenuItem};` : "")}
 `;
 
 export default StyledSubMenuItems;
