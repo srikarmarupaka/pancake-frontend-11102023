@@ -8,9 +8,11 @@ import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'ne
 import { WagmiProvider } from '@pancakeswap/wagmi'
 import { client } from 'utils/wagmi'
 import { HistoryManagerProvider } from 'contexts/HistoryContext'
+import {useEffect, useMemo} from "react";
 
 const StyledUIKitProvider: React.FC<React.PropsWithChildren> = ({ children, ...props }) => {
   const { resolvedTheme } = useNextTheme()
+  console.log('resolvedTheme', resolvedTheme)
   return (
     <UIKitProvider theme={resolvedTheme === 'dark' ? dark : light} {...props}>
       {children}
@@ -22,10 +24,19 @@ const Providers: React.FC<React.PropsWithChildren<{ store: Store; children: Reac
   children,
   store,
 }) => {
+  const theme = useMemo(() => {
+    return global?.window && window?.location?.href?.includes('swap-transparent') ? 'dark' : 'light';
+  }, [])
+  useEffect(() => {
+    if(theme === 'dark') {
+      const htmlElement = document.getElementsByTagName('html')
+      htmlElement[0]?.style?.removeProperty('color-scheme')
+    }
+  }, [theme]);
   return (
     <WagmiProvider client={client}>
       <Provider store={store}>
-        <NextThemeProvider forcedTheme="light" themes={['light']}>
+        <NextThemeProvider forcedTheme={theme} themes={['light','dark']}>
           <StyledUIKitProvider>
             <LanguageProvider>
               <SWRConfig

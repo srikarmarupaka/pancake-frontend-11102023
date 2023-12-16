@@ -5,4 +5,5 @@ const LineChart = () => {
   return <LineChartComponent />;
 }
 
+LineChart.pure = true
 export default LineChart

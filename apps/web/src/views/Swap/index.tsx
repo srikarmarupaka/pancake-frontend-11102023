@@ -62,8 +62,9 @@ export default function Swap({transparent} : {transparent?: boolean}) {
     [inputCurrencyId, outputCurrencyId, onCurrencySelection, warningSwapHandler],
   )
 
-  return (
-    <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
+    return (
+    // @ts-ignore
+    <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded} style={{height: "auto"}}>
       <Flex width={['328px', '100%']} height="100%" justifyContent="center" position="relative" alignItems="flex-start">
         {isDesktop && isChartSupported && (
           <PriceChartContainer

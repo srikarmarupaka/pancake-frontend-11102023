@@ -49,8 +49,14 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.inputButton};
   z-index: 1;
+  & #pair {
+    color: ${({ theme }) => theme.colors.inputButtonText};
+  }
+  & input {
+    color: ${({ theme }) => theme.colors.white};
+  }
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 8px;

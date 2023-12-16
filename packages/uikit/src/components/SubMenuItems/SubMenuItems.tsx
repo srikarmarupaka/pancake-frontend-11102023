@@ -2,6 +2,7 @@ import { AtomBox } from "@pancakeswap/ui/components/AtomBox";
 import { useIsomorphicLayoutEffect } from "framer-motion";
 import debounce from "lodash/debounce";
 import React, { useCallback, useRef } from "react";
+import {useTheme} from "styled-components";
 import { Box } from "../Box";
 import { DropdownMenuItemType } from "../DropdownMenu/types";
 import MenuItem from "../MenuItem/MenuItem";
@@ -23,6 +24,7 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
   isMobileOnly = false,
   ...props
 }) => {
+  const {isDark} = useTheme()
   const scrollLayerRef = useRef<HTMLDivElement>(null);
   const chevronLeftRef = useRef<HTMLDivElement>(null);
   const chevronRightRef = useRef<HTMLDivElement>(null);
@@ -91,10 +93,12 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
                     color: "#FFF",
                     borderRadius: "5px",
                     textAlign: 'center',
-                  } : {})
+                  } : {
+                    color: "#FFF",
+                  })
                 }} >
                   <MenuItem
-                    href={href}
+                    href={isDark && href === '/swap' ? '/swap-transparent' : href}
                     scrollLayerRef={scrollLayerRef}
                     isActive={isActive}
                     isDisabled={disabled}

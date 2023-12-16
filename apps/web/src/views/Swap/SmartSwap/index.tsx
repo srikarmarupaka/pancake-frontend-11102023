@@ -263,7 +263,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
   const [onPresentSettingsModal] = useModal(<SettingsModal mode={SettingsMode.SWAP_LIQUIDITY} />)
 
   return (
-    <StyledSmartSwapWrapper $transparent={transparent}>
+    <StyledSmartSwapWrapper>
       <MMAndAMMDealDisplay
         independentField={independentField}
         isMMBetter={isMMBetter}

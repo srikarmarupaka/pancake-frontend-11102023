@@ -51,18 +51,20 @@ const LineChartComponent = () => {
   return (
     // <Page>
       // <Card>
-        <PriceChartContainer
-            inputCurrencyId={inputCurrencyId}
-            inputCurrency={currencies[Field.INPUT]}
-            outputCurrencyId={outputCurrencyId}
-            outputCurrency={currencies[Field.OUTPUT]}
-            isChartExpanded
-            setIsChartExpanded={() => {
-              return true;
-            }}
-            currentSwapPrice={singleTokenPrice}
-            isChartDisplayed
-        />
+        <div style={{background: "#fff"}}>
+          <PriceChartContainer
+              inputCurrencyId={inputCurrencyId}
+              inputCurrency={currencies[Field.INPUT]}
+              outputCurrencyId={outputCurrencyId}
+              outputCurrency={currencies[Field.OUTPUT]}
+              isChartExpanded
+              setIsChartExpanded={() => {
+                return true;
+              }}
+              currentSwapPrice={singleTokenPrice}
+              isChartDisplayed
+          />
+        </div>
       // </Card>
     // </Page>
   )

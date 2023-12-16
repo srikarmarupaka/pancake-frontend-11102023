@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
   align-items: center;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => '#C5C5C5'};
+  background-color: ${({ theme }) => theme.colors.navBackground};
   // border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
   transform: translate3d(0, 0, 0);
 
@@ -39,7 +39,7 @@ const StyledNav = styled.nav`
 `;
 
 const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
-  position: fixed;
+  //position: fixed;
   top: ${({ showMenu, height }) => (showMenu ? 0 : `-${height}px`)};
   left: 0;
   transition: top 0.2s;
@@ -59,7 +59,7 @@ const BodyWrapper = styled(Box)`
   position: relative;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    background-color: #A2A2A2;
+    background-color: ${({ theme }) => theme.colors.background0};
   }
   display: flex;
   max-width: 100vw;
@@ -172,7 +172,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
               </Flex>
             </StyledNav>
           </FixedContainer>
-          <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "50px"}>
+          <BodyWrapper>
             <Inner>
               {subLinks ? (
                 <Flex justifyContent="center" overflow="hidden">
@@ -210,9 +210,9 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
         buyCakeLink={buyCakeLink}
         mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
       /> */}
-      <AtomBox display={{ xs: "block", md: "none" }}>
+      {!isDark && <AtomBox display={{ xs: "block", md: "none" }}>
         <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
-      </AtomBox>
+      </AtomBox>}
     </MenuContext.Provider>
   );
 };

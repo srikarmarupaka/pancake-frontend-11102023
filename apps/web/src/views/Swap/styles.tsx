@@ -22,7 +22,6 @@ export const StyledInputCurrencyWrapper = styled(Box)<{$transparent: boolean}>`
   width: 90%;
   max-width: 500px;
 `
-export const StyledSmartSwapWrapper = styled(Box)<{ $transparent: boolean }>`
-  background: ${({ $transparent }) => ($transparent ? 'rgba(0,0,0,0.2)' : 'var(--bg-container)')};
+export const StyledSmartSwapWrapper = styled(Box)`
   width: 100%;
 `
