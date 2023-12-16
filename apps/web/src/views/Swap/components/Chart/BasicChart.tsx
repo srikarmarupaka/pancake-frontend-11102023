@@ -70,8 +70,8 @@ const BasicChart = ({
   return (
     <>
       <Flex
-        flexDirection={['column', null, null, null, null, null, 'row']}
-        alignItems={['flex-start', null, null, null, null, null, 'center']}
+        flexDirection={['column', null, 'row', 'row', 'row', 'row', 'row']}
+        alignItems={['flex-start', null, 'flex-start', 'flex-start', 'center', 'center', 'center']}
         justifyContent="space-between"
         px="24px"
         flexWrap="wrap"

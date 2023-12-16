@@ -57,10 +57,7 @@ const TopBannerContainer = styled.div<{ height: number }>`
 
 const BodyWrapper = styled(Box)`
   position: relative;
-
-  ${({ theme }) => theme.mediaQueries.md} {
-    background-color: ${({ theme }) => theme.colors.background0};
-  }
+  background-color: ${({ theme }) => theme.colors.background0};
   display: flex;
   max-width: 100vw;
 `;
