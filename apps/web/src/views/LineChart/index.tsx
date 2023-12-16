@@ -33,7 +33,6 @@ const LineChartComponent = () => {
 
   const inputCurrencyId = 'BNB';
   const outputCurrencyId = '0xcAE3d82D63e2b0094bc959752993D3D3743B5D08';
-  console.log('inputCurrencyId', inputCurrencyId, outputCurrencyId)
   const inputCurrency = useCurrency('BNB')
   const outputCurrency = useCurrency('0xcAE3d82D63e2b0094bc959752993D3D3743B5D08')
 

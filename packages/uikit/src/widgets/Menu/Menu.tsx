@@ -16,6 +16,7 @@ import Logo from "./components/Logo";
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import { MenuContext } from "./context";
 import { NavProps } from "./types";
+import {ChartIcon} from "../../components";
 
 const Wrapper = styled.div`
   position: relative;
@@ -155,6 +156,13 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                 <AtomBox mr="12px" display={{ xs: "none", lg: "block" }}>
                   <CakePrice showSkeleton={false} cakePriceUsd={cakePriceUsd} />
                 </AtomBox>
+                <Box mt="4px">
+                  <div aria-hidden="true" style={{cursor: 'pointer'}} onClick={() => {
+                    window.parent.postMessage("price-chart", "*");
+                  }}>
+                    <ChartIcon height={24} width={24} color="white" />
+                  </div>
+                </Box>
                 <Box mt="4px">
                   <LangSelector
                     currentLang={currentLang}
