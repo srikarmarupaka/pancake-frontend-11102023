@@ -162,6 +162,7 @@ const config: (
       href: '/info',
       icon: MoreIcon,
       hideSubNav: true,
+      showItemsOnMobile: false,
       items: [
         // {
         //   label: t('Info'),
