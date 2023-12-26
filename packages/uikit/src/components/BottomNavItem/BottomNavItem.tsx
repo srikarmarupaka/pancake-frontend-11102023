@@ -26,7 +26,7 @@ const BottomNavItem: React.FC<React.PropsWithChildren<BottomNavItemProps>> = ({
           width="21px"
           color={isActive ? "secondary" : "textSubtle"}
           isActive={isActive}
-          activeBackgroundColor="backgroundAlt"
+          activeBackgroundColor="transperent"
         />
       )}
       <StyledBottomNavText

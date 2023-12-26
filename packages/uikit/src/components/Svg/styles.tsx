@@ -4,6 +4,8 @@ import { Colors } from "../../theme";
 export const StyledIconContainer = styled.div<{ activeBackgroundColor?: keyof Colors }>`
   background: ${({ activeBackgroundColor, theme }) =>
     activeBackgroundColor ? theme.colors[activeBackgroundColor] : "transparent"};
+  hover:  
+    ${({ theme }) => theme.colors.primary};
 `;
 
 export const StyledAnimatedIconComponent = styled.div<{

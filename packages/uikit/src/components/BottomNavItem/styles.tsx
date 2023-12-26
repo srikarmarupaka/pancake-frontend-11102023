@@ -14,6 +14,7 @@ export const StyledBottomNavItem = styled.button`
   &:hover,
   &:hover div {
     background: ${({ theme }) => theme.colors.tertiary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
