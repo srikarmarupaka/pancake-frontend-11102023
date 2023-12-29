@@ -280,7 +280,7 @@ export default function CurrencyInputPanel({
                         : currency?.symbol) || t('Select a currency')}
                     </Text>
                   )}
-                  {!disableCurrencySelect && <ChevronDownIcon />}
+                  {!disableCurrencySelect && <ChevronDownIcon color={transparent ? 'white' : ''} />}
                 </Flex>
               </CurrencySelectButton>
               {/* {token && tokenAddress ? (

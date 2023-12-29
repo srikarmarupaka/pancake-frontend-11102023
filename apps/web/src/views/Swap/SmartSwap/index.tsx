@@ -302,6 +302,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             showCommonBases
             showUSDPrice={!!tokenMap[chainId]?.[inputCurrencyId] || inputCurrencyId === NATIVE[chainId]?.symbol}
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
+            transparent={transparent}
           />
           {/* {isAccessTokenSupported && inputCurrency?.isToken && (
             <Box>
@@ -342,6 +343,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             disabled={smartRouterOn}
             showUSDPrice={!!tokenMap[chainId]?.[outputCurrencyId] || outputCurrencyId === NATIVE[chainId]?.symbol}
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
+            transparent={transparent}
           />
 
           {/* {isAccessTokenSupported && outputCurrency?.isToken && (

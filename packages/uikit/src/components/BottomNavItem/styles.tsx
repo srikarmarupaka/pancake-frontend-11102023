@@ -13,7 +13,7 @@ export const StyledBottomNavItem = styled.button`
   }
   &:hover,
   &:hover div {
-    background: ${({ theme }) => theme.colors.primaryGradient};
+    background: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.white};
   }
 `;
