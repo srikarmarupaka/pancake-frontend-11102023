@@ -45,7 +45,7 @@ const LabelRow = styled.div`
   line-height: 1rem;
   padding: 0.75rem 1rem 0 1rem;
 `
-const InputPanel = styled.div`
+const InputPanel = styled.div<{transparent: boolean}>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
@@ -55,7 +55,7 @@ const InputPanel = styled.div`
     color: ${({ theme }) => theme.colors.inputButtonText};
   }
   & input {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme, transparent }) => !transparent ?  theme.colors.white :  theme.colors.inputButtonText};
   }
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
@@ -246,7 +246,7 @@ export default function CurrencyInputPanel({
           </Text>
         )}
       </Flex>
-      <InputPanel>
+      <InputPanel transparent>
         <Container as="label" zapStyle={zapStyle} error={error}>
           <Flex width="100%" justifyContent="space-between" padding="12px" flexDirection={labelTo ? 'row-reverse' : 'row'}>
             <>

@@ -237,6 +237,7 @@ const useTooltip = (content: React.ReactNode, options?: TooltipOptions): Tooltip
   return {
     targetRef: setTargetElement,
     tooltip: tooltipInPortal ?? AnimatedTooltip,
+    // tooltip : AnimatedTooltip,
     tooltipVisible: visible,
   };
 };
