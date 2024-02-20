@@ -24,7 +24,7 @@ const BottomNavItem: React.FC<React.PropsWithChildren<BottomNavItemProps>> = ({
           fillIcon={fillIcon}
           height="22px"
           width="21px"
-          color={isActive ? "secondary" : "textSubtle"}
+          color={isActive ? "secondary" : "white"}
           isActive={isActive}
           activeBackgroundColor="transperent"
         />
